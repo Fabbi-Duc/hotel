@@ -11,11 +11,6 @@ export default {
     return {};
   },
   created() {
-    this.$echo
-      .channel("laravel_database_notifications")
-      .listen("SendNotification", data => {
-        console.log(data);
-      });
   },
   mounted() {
     this.sendNotification();

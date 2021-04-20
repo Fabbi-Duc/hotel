@@ -40,7 +40,13 @@
       />
       <span>Number of records returned</span>
     </div>
-    <b-table striped hover :items="users" :fields="fields" :current-page="paginate.currentPage">
+    <b-table
+      striped
+      hover
+      :items="users"
+      :fields="fields"
+      :current-page="paginate.currentPage"
+    >
       <template #cell(numerical)="row">
         {{
           ++row.index + (Number(paginate.page) - 1) * Number(paginate.perPage)
@@ -53,6 +59,15 @@
         <span v-if="row.item.position == 3">chef</span>
         <span v-if="row.item.position == 4">inventory management</span>
         <span v-if="row.item.position == 5">admin</span>
+      </template>
+      <template #cell(gender)="row">
+        <span>
+          {{
+            row.item.gender == 1
+            ? 'male'
+            : 'female'
+          }}
+        </span>
       </template>
     </b-table>
     <div class="pagination">
@@ -88,6 +103,7 @@ export default {
         { key: "numerical", label: "numerical" },
         { key: "firstname", label: "firstname" },
         { key: "lastname", label: "lastname" },
+        { key: "birthday", label: "birthday" },
         { key: "position", label: "position" },
         { key: "gender", label: "gender" },
         { key: "phone", label: "phone" },
@@ -103,19 +119,9 @@ export default {
       paginate: {
         perPage: 10,
         total: 50,
-        page: 1
+        page: 1,
       },
     };
-  },
-  watch: {
-    $route: {
-      immediate: true,
-      handler(route) {
-        if (route.query && route.query.page) {
-          this.activePage = Number(route.query.page);
-        }
-      }
-    }
   },
 
   mounted() {
@@ -128,7 +134,7 @@ export default {
         lastname: this.lastName,
         position: this.position,
         perPage: this.paginate.perPage,
-        page: this.paginate.page
+        page: this.paginate.page,
       };
       await this.$store.dispatch("user/getListUsers", params).then((res) => {
         this.users = res.data.listUser.data;

@@ -22,7 +22,7 @@ class UserRepository extends RepositoryAbstract implements UserRepositoryInterfa
             $position = $data['position'];
 
             if($data['lastname'] && $data->has('lastname')) {
-                    $list->where('lastname', 'LIKE', "%$lastname%");
+                $list->where('lastname', 'LIKE', "%$lastname%");
             }
 
             if($data['firstname'] && $data->has('firstname')) {
