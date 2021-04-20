@@ -18097,3 +18097,515 @@ Horizon started successfully.
 [2021-03-09 10:08:58][a7eb7f7d-f897-48e5-be79-43725b881a16] Processing: App\Events\SendNotification
 [2021-03-09 10:08:58][a7eb7f7d-f897-48e5-be79-43725b881a16] Processed:  App\Events\SendNotification
 Horizon started successfully.
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0003     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0003     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0002     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Warning: require(/usr/share/nginx/api/vendor/autoload.php): failed to open stream: No such file or directory in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+
+Fatal error: require(): Failed opening required '/usr/share/nginx/api/vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /usr/share/nginx/api/artisan on line 18
+
+Call Stack:
+    0.0001     412144   1. {main}() /usr/share/nginx/api/artisan:0
+
+Horizon started successfully.
+[2021-04-20 04:36:14][9f68d602-c82c-42b5-9554-3fe5ea113cbd] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][9f68d602-c82c-42b5-9554-3fe5ea113cbd] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][d938647c-c5dc-4102-8cad-43d975282e8b] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][d938647c-c5dc-4102-8cad-43d975282e8b] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][bab9f4c9-16dc-4f39-9577-9bd618f9eaa2] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][bab9f4c9-16dc-4f39-9577-9bd618f9eaa2] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][7907ac0d-edb7-4146-af4a-d697149ee1ec] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][7907ac0d-edb7-4146-af4a-d697149ee1ec] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][7742fd01-627a-4396-8dad-9eac1c6b2e54] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][7742fd01-627a-4396-8dad-9eac1c6b2e54] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][7ea0a4fd-0f77-4c7a-8081-dc228939f058] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][7ea0a4fd-0f77-4c7a-8081-dc228939f058] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][c99f0601-b13d-4ce0-bdad-78c460f07cea] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][c99f0601-b13d-4ce0-bdad-78c460f07cea] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][5c2b1a63-2e55-48e7-8958-fccc2d85140d] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][5c2b1a63-2e55-48e7-8958-fccc2d85140d] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][b22d908f-4da4-4d64-b31c-c8fca4321d03] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][b22d908f-4da4-4d64-b31c-c8fca4321d03] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][d614999f-fe35-451b-bcd2-b8a8a7124492] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][d614999f-fe35-451b-bcd2-b8a8a7124492] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][cc476144-938f-458e-8836-81363dd6461f] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][cc476144-938f-458e-8836-81363dd6461f] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][b96ab33b-9164-42a3-b7f3-0a079992b219] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][b96ab33b-9164-42a3-b7f3-0a079992b219] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][021fbe27-e53b-4b03-95c6-92765626b9bc] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][021fbe27-e53b-4b03-95c6-92765626b9bc] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][33b15691-8bbc-4fea-98c4-84c2c9add3b8] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][33b15691-8bbc-4fea-98c4-84c2c9add3b8] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][1632403c-1711-4cde-aee8-b89911aeed48] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][1632403c-1711-4cde-aee8-b89911aeed48] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][4b73f84c-ac27-447d-b5c8-b51e3bb3825a] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][4b73f84c-ac27-447d-b5c8-b51e3bb3825a] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][32c94a88-86ac-404a-ba2a-11d7955e6964] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][32c94a88-86ac-404a-ba2a-11d7955e6964] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][87264d18-2c20-44b7-9278-fd0851fb22bc] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][87264d18-2c20-44b7-9278-fd0851fb22bc] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][fede4495-c55f-4fde-8bfb-8b64a9aa7399] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][fede4495-c55f-4fde-8bfb-8b64a9aa7399] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][6205237d-4def-4fae-a0aa-c6445c5263e4] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][6205237d-4def-4fae-a0aa-c6445c5263e4] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][7587745e-7223-4743-8dc8-e37d5a233dd7] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][7587745e-7223-4743-8dc8-e37d5a233dd7] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][e4774534-737a-4908-b29c-39aa57325897] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][e4774534-737a-4908-b29c-39aa57325897] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][8f26383a-fed7-4bd7-a914-724d7c4c6092] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][8f26383a-fed7-4bd7-a914-724d7c4c6092] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][98646d10-6de3-4683-b067-4a57ed91d8f8] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][98646d10-6de3-4683-b067-4a57ed91d8f8] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][1c9aaa0a-d3ee-42e2-bd3c-a4e13ab7b817] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][1c9aaa0a-d3ee-42e2-bd3c-a4e13ab7b817] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][0034d480-4907-4a72-b45f-42fcc5d212b0] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][0034d480-4907-4a72-b45f-42fcc5d212b0] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][9a7e25bc-5479-434f-b3a9-f5948ff8da7d] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][9a7e25bc-5479-434f-b3a9-f5948ff8da7d] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][445d829f-a921-44c1-b883-d00de963e990] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][445d829f-a921-44c1-b883-d00de963e990] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][df2ece84-a80d-4517-9eff-0e0fcf5ea2d5] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][df2ece84-a80d-4517-9eff-0e0fcf5ea2d5] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][a5e3e20e-c05b-480d-916f-de481fc59a5b] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][a5e3e20e-c05b-480d-916f-de481fc59a5b] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][61fa9eb1-531b-43a9-9e72-06641fd54c20] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][61fa9eb1-531b-43a9-9e72-06641fd54c20] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][afa4fdd5-a942-4205-a5d1-93e096c15cff] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][afa4fdd5-a942-4205-a5d1-93e096c15cff] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][12f71829-2f01-4695-b15e-8ad4b8846a4d] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][12f71829-2f01-4695-b15e-8ad4b8846a4d] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][85c7d770-8a18-4298-90eb-0e8c0c071372] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][85c7d770-8a18-4298-90eb-0e8c0c071372] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][50874479-9e2e-48b2-8648-819109be7c8a] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][50874479-9e2e-48b2-8648-819109be7c8a] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][062d6026-83ad-4f29-8ef3-348767df28c1] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][062d6026-83ad-4f29-8ef3-348767df28c1] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][fa8f194d-773e-4f58-bc0a-8ea502352181] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][fa8f194d-773e-4f58-bc0a-8ea502352181] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][dc956ccb-de6c-4e6f-8025-f42ee3328236] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][dc956ccb-de6c-4e6f-8025-f42ee3328236] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][8b9863f9-d35f-49be-8e8e-96e6b8f65b6d] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][8b9863f9-d35f-49be-8e8e-96e6b8f65b6d] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][12c7de75-c99c-4d4a-b532-532ca8271e51] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][12c7de75-c99c-4d4a-b532-532ca8271e51] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][02a0c9bc-790f-4252-b2e2-776aabc9038a] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][02a0c9bc-790f-4252-b2e2-776aabc9038a] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][aad3643e-9ecb-4f73-90e0-74b51398ff6f] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][aad3643e-9ecb-4f73-90e0-74b51398ff6f] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][51777da0-e595-4897-9818-56d6cf6ebdca] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][51777da0-e595-4897-9818-56d6cf6ebdca] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][a2edf030-a7c5-4d32-9bf2-481037c4a19f] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][a2edf030-a7c5-4d32-9bf2-481037c4a19f] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][f762e249-3d12-474c-9190-d5922bb33710] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][f762e249-3d12-474c-9190-d5922bb33710] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][13e84cc0-93f9-4c09-9d18-16c4d5024bf4] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][13e84cc0-93f9-4c09-9d18-16c4d5024bf4] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][6fc3d830-d41a-4365-97c7-d694cad6dbbf] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][6fc3d830-d41a-4365-97c7-d694cad6dbbf] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][4f6d888b-93fe-49ec-add0-98d3941c268a] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][4f6d888b-93fe-49ec-add0-98d3941c268a] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][8bd8c824-15d7-4488-baa6-525180f310d3] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][8bd8c824-15d7-4488-baa6-525180f310d3] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][00f9f1f1-2ff6-4b50-89b3-9f8dcabc4ef6] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][00f9f1f1-2ff6-4b50-89b3-9f8dcabc4ef6] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][ff489240-8aea-45b2-bab7-13b7edb66121] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][ff489240-8aea-45b2-bab7-13b7edb66121] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][4992c237-5024-428e-8258-0ac872c81d46] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][4992c237-5024-428e-8258-0ac872c81d46] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][e5ca333c-69a7-471b-8d25-90c3a614c7d7] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][e5ca333c-69a7-471b-8d25-90c3a614c7d7] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][d9f7ee40-79b0-48cd-a64e-a558301128c9] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][d9f7ee40-79b0-48cd-a64e-a558301128c9] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][e4843d6a-dac5-43f0-9282-590d9be8f0e2] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][e4843d6a-dac5-43f0-9282-590d9be8f0e2] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][12616513-7d64-431a-80df-6a14bfe6a725] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][12616513-7d64-431a-80df-6a14bfe6a725] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][9c1911c3-594f-4c87-ba43-ed155af46afa] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][9c1911c3-594f-4c87-ba43-ed155af46afa] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][16919b61-c3d1-4cdd-8946-50d9a5ab1608] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][16919b61-c3d1-4cdd-8946-50d9a5ab1608] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][372b2286-55bd-4410-8557-d4de3a738f13] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][372b2286-55bd-4410-8557-d4de3a738f13] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][cc166306-0939-4be9-86db-6b97bc5da439] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][cc166306-0939-4be9-86db-6b97bc5da439] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][72d9e836-9615-45f5-842e-925e1cda7805] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][72d9e836-9615-45f5-842e-925e1cda7805] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][ba8201ef-89fe-47ef-bfee-0d3753a1334d] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][ba8201ef-89fe-47ef-bfee-0d3753a1334d] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][c8bddd36-8de0-4d8f-8475-b910d3ba8be9] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][c8bddd36-8de0-4d8f-8475-b910d3ba8be9] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][a2c9d2ee-333a-4aa9-957d-f352ffbae07b] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][a2c9d2ee-333a-4aa9-957d-f352ffbae07b] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][c4c7b4e1-381c-4fe6-a34b-7b91dffc8eea] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][c4c7b4e1-381c-4fe6-a34b-7b91dffc8eea] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][7f55ccd3-a41d-401f-9973-faef34ff1fea] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][7f55ccd3-a41d-401f-9973-faef34ff1fea] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][a4ac78a9-cab7-4059-a87c-0a5a22a7489f] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][a4ac78a9-cab7-4059-a87c-0a5a22a7489f] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][b0092c63-0c70-4208-8945-2f561fd5e5f1] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][b0092c63-0c70-4208-8945-2f561fd5e5f1] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][f68cc9bd-e7ce-42d1-a035-6a519ba4624f] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][f68cc9bd-e7ce-42d1-a035-6a519ba4624f] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][2eb2833f-c299-4c6b-81ab-23899deb4e20] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][2eb2833f-c299-4c6b-81ab-23899deb4e20] Processed:  App\Events\SendNotification
+[2021-04-20 04:36:14][7e779aeb-cfac-4890-983b-221edf4e4a36] Processing: App\Events\SendNotification
+[2021-04-20 04:36:14][7e779aeb-cfac-4890-983b-221edf4e4a36] Processed:  App\Events\SendNotification
+Horizon started successfully.
+[2021-04-25 01:50:36][e9fe3bac-2ea9-4df6-8319-d3ea03e85972] Processing: App\Events\SendNotification
+[2021-04-25 01:50:36][e9fe3bac-2ea9-4df6-8319-d3ea03e85972] Processed:  App\Events\SendNotification
+[2021-04-25 01:50:48][89709405-a8c9-4bbe-8e57-47c8063fbf16] Processing: App\Events\SendNotification
+[2021-04-25 01:50:48][89709405-a8c9-4bbe-8e57-47c8063fbf16] Processed:  App\Events\SendNotification
+[2021-04-25 01:52:42][b5001255-afaa-4037-af61-3b9aece74856] Processing: App\Events\SendNotification
+[2021-04-25 01:52:42][b5001255-afaa-4037-af61-3b9aece74856] Processed:  App\Events\SendNotification
+[2021-04-25 01:52:45][c2f2f408-2c3f-42d8-a681-77d5f12f8320] Processing: App\Events\SendNotification
+[2021-04-25 01:52:45][c2f2f408-2c3f-42d8-a681-77d5f12f8320] Processed:  App\Events\SendNotification

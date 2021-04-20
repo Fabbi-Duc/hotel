@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,3 +38,4 @@ Route::middleware('auth:api')->group(function () {
 
 Route::get('/users/list', [UserController::class, 'getListUsers'])->name('getListUsers');
 Route::get('/qr-code', [UserController::class, 'sendMail'])->name('sendMailQr');
+Route::post('/room-code', [RoomController::class, 'getCodeRoom'])->name('getRoomCode');

@@ -9866,3 +9866,121 @@
 2021-03-09 10:13:24,759 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2021-03-09 10:13:24,760 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2021-03-09 10:13:24,760 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:11,167 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-04-20 04:35:11,167 INFO Included extra file "/etc/supervisor.d/cron.conf" during parsing
+2021-04-20 04:35:11,168 INFO Included extra file "/etc/supervisor.d/horizon.conf" during parsing
+2021-04-20 04:35:11,168 INFO Included extra file "/etc/supervisor.d/php-fpm.conf" during parsing
+2021-04-20 04:35:11,171 INFO supervisord started with pid 1
+2021-04-20 04:35:12,176 INFO spawned: 'cron-job' with pid 10
+2021-04-20 04:35:12,178 INFO spawned: 'horizon' with pid 11
+2021-04-20 04:35:12,181 INFO spawned: 'php-fpm' with pid 12
+2021-04-20 04:35:12,254 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:13,290 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:13,291 INFO spawned: 'horizon' with pid 15
+2021-04-20 04:35:13,291 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:14,305 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:14,305 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:15,310 INFO spawned: 'horizon' with pid 16
+2021-04-20 04:35:16,354 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:16,354 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:17,359 INFO spawned: 'horizon' with pid 17
+2021-04-20 04:35:18,375 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:18,375 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:19,378 INFO spawned: 'horizon' with pid 18
+2021-04-20 04:35:20,398 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:20,398 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:21,404 INFO spawned: 'horizon' with pid 19
+2021-04-20 04:35:22,421 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:22,421 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:23,426 INFO spawned: 'horizon' with pid 20
+2021-04-20 04:35:24,440 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:24,440 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:25,445 INFO spawned: 'horizon' with pid 21
+2021-04-20 04:35:26,484 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:26,484 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:27,486 INFO spawned: 'horizon' with pid 22
+2021-04-20 04:35:28,499 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:28,500 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:29,502 INFO spawned: 'horizon' with pid 23
+2021-04-20 04:35:30,515 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:30,515 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:31,520 INFO spawned: 'horizon' with pid 24
+2021-04-20 04:35:32,537 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:32,538 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:33,541 INFO spawned: 'horizon' with pid 25
+2021-04-20 04:35:34,567 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:34,567 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:35,572 INFO spawned: 'horizon' with pid 26
+2021-04-20 04:35:36,589 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:36,589 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:37,591 INFO spawned: 'horizon' with pid 27
+2021-04-20 04:35:38,606 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:38,607 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:39,612 INFO spawned: 'horizon' with pid 28
+2021-04-20 04:35:40,653 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:40,653 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:41,658 INFO spawned: 'horizon' with pid 34
+2021-04-20 04:35:42,674 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:42,675 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:43,679 INFO spawned: 'horizon' with pid 35
+2021-04-20 04:35:44,721 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:44,722 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:45,728 INFO spawned: 'horizon' with pid 36
+2021-04-20 04:35:46,771 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:46,771 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:47,777 INFO spawned: 'horizon' with pid 37
+2021-04-20 04:35:48,793 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:48,793 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:49,796 INFO spawned: 'horizon' with pid 57
+2021-04-20 04:35:50,809 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:50,809 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:51,814 INFO spawned: 'horizon' with pid 58
+2021-04-20 04:35:52,831 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:52,831 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:53,835 INFO spawned: 'horizon' with pid 59
+2021-04-20 04:35:54,852 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:54,852 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:55,857 INFO spawned: 'horizon' with pid 60
+2021-04-20 04:35:56,896 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:56,897 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:57,902 INFO spawned: 'horizon' with pid 61
+2021-04-20 04:35:58,919 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:35:58,919 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:35:59,921 INFO spawned: 'horizon' with pid 62
+2021-04-20 04:36:00,935 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:36:00,935 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:36:01,937 INFO spawned: 'horizon' with pid 64
+2021-04-20 04:36:02,950 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:36:02,950 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:36:03,952 INFO spawned: 'horizon' with pid 65
+2021-04-20 04:36:04,965 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:36:04,965 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:36:05,967 INFO spawned: 'horizon' with pid 66
+2021-04-20 04:36:06,982 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:36:06,982 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:36:07,984 INFO spawned: 'horizon' with pid 67
+2021-04-20 04:36:09,001 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:36:09,002 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:36:10,004 INFO spawned: 'horizon' with pid 417
+2021-04-20 04:36:11,017 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 04:36:11,017 INFO exited: horizon (exit status 255; not expected)
+2021-04-20 04:36:12,020 INFO spawned: 'horizon' with pid 423
+2021-04-20 04:36:12,020 INFO reaped unknown pid 418 (exit status 0)
+2021-04-20 04:36:13,158 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-20 11:38:55,358 WARN received SIGQUIT indicating exit request
+2021-04-20 11:38:55,384 INFO waiting for cron-job, horizon, php-fpm to die
+2021-04-20 11:38:55,468 INFO stopped: php-fpm (exit status 0)
+2021-04-20 11:38:58,482 INFO waiting for cron-job, horizon to die
+2021-04-20 11:39:01,486 INFO waiting for cron-job, horizon to die
+2021-04-20 11:39:04,491 INFO waiting for cron-job, horizon to die
+2021-04-25 01:49:38,412 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-04-25 01:49:38,412 INFO Included extra file "/etc/supervisor.d/cron.conf" during parsing
+2021-04-25 01:49:38,412 INFO Included extra file "/etc/supervisor.d/horizon.conf" during parsing
+2021-04-25 01:49:38,412 INFO Included extra file "/etc/supervisor.d/php-fpm.conf" during parsing
+2021-04-25 01:49:38,418 INFO supervisord started with pid 1
+2021-04-25 01:49:39,420 INFO spawned: 'cron-job' with pid 13
+2021-04-25 01:49:39,421 INFO spawned: 'horizon' with pid 14
+2021-04-25 01:49:39,423 INFO spawned: 'php-fpm' with pid 15
+2021-04-25 01:49:40,868 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-25 01:49:40,868 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-04-25 01:49:40,868 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
