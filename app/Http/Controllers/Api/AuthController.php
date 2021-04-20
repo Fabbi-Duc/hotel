@@ -26,7 +26,7 @@ class AuthController extends ApiController
 
     public function signIn(Request $request)
     {
-        Log::info("Login thanh cong");
+        // Log::info("Login thanh cong");
         $result = $this->authService->signIn($request->all());
         if (!$result['success']) {
             return $this->sendError(ErrorType::CODE_4010, ErrorType::STATUS_4010);

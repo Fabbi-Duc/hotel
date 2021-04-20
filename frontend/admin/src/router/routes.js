@@ -66,12 +66,79 @@ const routes = [
         component: view("userList/UsersList")
       },
       {
-        path: "room/book",
+        path: "rooms/list",
+        name: "RoomList",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("room/roomList")
+      },
+      {
+        path: "rooms/:id/update",
+        name: "RoomUpdate",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("room/roomEditAdd")
+      },
+      {
+        path: "rooms/create",
+        name: "RoomCreate",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("room/roomEditAdd")
+      },
+      {
+        path: "customers/list",
+        name: "CustomersList",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("customers/customerList")
+      },
+      {
+        path: "rooms/detail/:id",
+        name: "RoomDetail",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("room/detailRoom")
+      },
+      {
+        path: "rooms",
+        name: "Room",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("userList/room")
+      },
+      {
+        path: "room/book/:id",
         name: "BookRoom",
         meta: {
           layout: "MainLayout",
           requiredAuth: true
         },
+        props: true,
+        component: view("userList/BookRoom")
+      },
+      {
+        path: "room/book/:id/:user_id",
+        name: "BookRoomUpdate",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
         component: view("userList/BookRoom")
       },
       {

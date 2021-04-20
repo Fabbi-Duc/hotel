@@ -20,16 +20,16 @@ class NotificationController extends ApiController
             "registration_ids" => $registration_ids,
             "notification" => [
                 "sound" => "default",
-                "body" => "test body",
-                "title" => "test title",
+                "body" => "body",
+                "title" => "title",
                 "content_available" => true,
                 "priority" => "high"
             ],
             "data" => [
                 "sound" => "default",
-                "count" => 7,
-                "body" => "test body",
-                "title" => "test title",
+                "count" => 8,
+                "body" => "body",
+                "title" => "title",
                 "content_available" => true,
                 "priority" => "high"
             ]

@@ -15,8 +15,8 @@ export default [
         {
           _name: "CSidebarNavItem",
           icon: "cil-puzzle",
-          name: "Book Room",
-          to: "/room/book"
+          name: "Room",
+          to: "/rooms"
         }
       ]
     }

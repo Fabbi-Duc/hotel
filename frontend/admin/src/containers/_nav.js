@@ -12,22 +12,22 @@ export default [
           text: "NEW"
         }
       },
-      // {
-      //   _name: "CSidebarNavDropdown",
-      //   name: "Hộp thư",
-      //   route: "/messages",
-      //   icon: "cil-puzzle",
-      //   items: [
-      //     {
-      //       name: "Tin nhắn",
-      //       to: "/messages"
-      //     },
-      //     {
-      //       name: "Phòng chat",
-      //       to: "/base/breadcrumbs"
-      //     }
-      //   ]
-      // },
+      {
+        _name: "CSidebarNavDropdown",
+        name: "Hộp thư",
+        route: "/messages",
+        icon: "cil-puzzle",
+        items: [
+          {
+            name: "Tin nhắn",
+            to: "/messages"
+          },
+          {
+            name: "Phòng chat",
+            to: "/base/breadcrumbs"
+          }
+        ]
+      },
       {
         _name: "CSidebarNavDropdown",
         name: "User",
@@ -37,6 +37,38 @@ export default [
           {
             name: "Users List",
             to: "/users"
+          }
+        ]
+      },
+      {
+        _name: "CSidebarNavDropdown",
+        name: "Room",
+        route: "/rooms",
+        icon: "cil-puzzle",
+        items: [
+          {
+            name: "Rooms List",
+            to: "/rooms/list"
+          },
+          {
+            name: "Room Create",
+            to: "/rooms/create"
+          }
+        ]
+      },
+      {
+        _name: "CSidebarNavDropdown",
+        name: "Customer",
+        route: "/customers",
+        icon: "cil-puzzle",
+        items: [
+          {
+            name: "Customers List",
+            to: "/customers/list"
+          },
+          {
+            name: "Customer Create",
+            to: "/customers/create"
           }
         ]
       }
