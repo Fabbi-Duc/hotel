@@ -98,11 +98,11 @@ const routes = [
     path: "/customer",
     name: "Customer",
     meta: {
-      layout: "CustomerLayout",
+      layout: "CustomersLayout",
       requiredAuth: false
     },
-    component: container("TheContainer"),
-  },
+    component: view("Customer"),
+  }
 ];
 
 export default routes;
