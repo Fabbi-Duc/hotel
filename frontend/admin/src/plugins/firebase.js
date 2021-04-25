@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import 'firebase/storage';
 import "firebase/messaging";
 
 const firebaseConfig = {

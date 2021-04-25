@@ -24,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->singleton(
+            "App\Repositories\Customer\CustomerRepositoryInterface",
+            "App\Repositories\Customer\CustomerRepository"
+        );
+
+        $this->app->singleton(
             "App\Repositories\Auth\AuthRepositoryInterface",
             "App\Repositories\Auth\AuthRepository"
         );

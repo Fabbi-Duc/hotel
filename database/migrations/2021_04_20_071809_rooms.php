@@ -16,7 +16,12 @@ class Rooms extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('code_room');
+            $table->string('code_room')->nullable();
+            $table->integer('floor');
+            $table->string('decription');
+            $table->integer('room_type_id');
+            $table->integer('status');
+            $table->string('image_url');
             $table->timestamps();
         });
     }
