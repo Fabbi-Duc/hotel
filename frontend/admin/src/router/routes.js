@@ -102,6 +102,15 @@ const routes = [
       requiredAuth: false
     },
     component: view("Customer"),
+  },
+  {
+    path: "/room-details",
+    name: "RoomDetails",
+    meta: {
+      layout: "CustomersLayout",
+      requiredAuth: false
+    },
+    component: view("RoomDetails"),
   }
 ];
 
