@@ -48,54 +48,96 @@
       </div>
     </div>
     <div class="content" style="margin-top: 110px">
-      <b-row class="d-flex">
-        <b-col md="9">
-          <img class="current-image" src="https://placekitten.com/801/800" alt="">
-          <div>
-            <img class="list-image" v-for="(image, i) in images" :src="image" :key="i" @click="index = i">
+      <div class="d-flex justify-content-between food__wrap mb-3">
+        <div class="d-flex align-items-start">
+          <img src="https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg" alt="">
+          <div class="ml-4">
+            <div class="food__name">Trà Sữa Trân Châu Đường Đen.</div>
+            <div class="food__des">Đã được đặt 110+</div>
           </div>
-          <vue-gallery-slideshow :images="images" :index="index" @close="index = null" style="margin-top: 108px"></vue-gallery-slideshow>
-        </b-col>
-        <b-col md="3" class="book-room">
-          <h2>choose a room</h2>
-          <label for="" class="text-left">NAME</label>
-          <b-form-input
-            v-model="name"
-            type="email"
-            placeholder="Enter name"
-            required
-          ></b-form-input>
-          <label for="" class="text-left">AGE</label>
-          <b-form-select
-            v-model="ageSelected"
-            :options="age"
-            required
-          ></b-form-select>
-          <label for="" class="text-left">EMAIL</label>
-          <b-form-input
-            type="email"
-            v-model="email"
-            placeholder="Enter email"
-            required
-          ></b-form-input>
-          <label for="" class="text-left">CMND</label>
-          <b-form-input
-            type="email"
-            v-model="passport"
-            placeholder="Enter cmnd"
-            required
-          ></b-form-input>
-          <label for="" class="text-left">CHECK-IN:</label>
-          <input type="date" v-model="checkIn" class="book__options__input form-control" />
-          <label for="" class="text-left">CHECK-OUT:</label>
-          <input type="date" v-model="checkOut" class="book__options__input form-control" />
-          <label for="" class="text-left">INITIAL PRICE:</label>
-          <div class="text-left price">400$</div>
-          <label for="" class="text-left">YOUR PRICE:</label>
-          <div class="text-left price">350$</div>
-          <div class="btn__book-room">BOOK ROOM</div>
-        </b-col>
-      </b-row>
+        </div>
+        <div>
+          <div class="d-flex">
+            <div class="food__price">
+              <strike class="food__price--small">40.000d</strike>
+              <div class="food__price--nomal">35.550d</div>
+            </div>
+            <div class="food__add ml-3">+</div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between food__wrap mb-3">
+        <div class="d-flex align-items-start">
+          <img src="https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg" alt="">
+          <div class="ml-4">
+            <div class="food__name">Trà Sữa Trân Châu Đường Đen.</div>
+            <div class="food__des">Đã được đặt 110+</div>
+          </div>
+        </div>
+        <div>
+          <div class="d-flex">
+            <div class="food__price">
+              <strike class="food__price--small">40.000d</strike>
+              <div class="food__price--nomal">35.550d</div>
+            </div>
+            <div class="food__add ml-3">+</div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between food__wrap mb-3">
+        <div class="d-flex align-items-start">
+          <img src="https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg" alt="">
+          <div class="ml-4">
+            <div class="food__name">Trà Sữa Trân Châu Đường Đen.</div>
+            <div class="food__des">Đã được đặt 110+</div>
+          </div>
+        </div>
+        <div>
+          <div class="d-flex">
+            <div class="food__price">
+              <strike class="food__price--small">40.000d</strike>
+              <div class="food__price--nomal">35.550d</div>
+            </div>
+            <div class="food__add ml-3">+</div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between food__wrap mb-3">
+        <div class="d-flex align-items-start">
+          <img src="https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg" alt="">
+          <div class="ml-4">
+            <div class="food__name">Trà Sữa Trân Châu Đường Đen.</div>
+            <div class="food__des">Đã được đặt 110+</div>
+          </div>
+        </div>
+        <div>
+          <div class="d-flex">
+            <div class="food__price">
+              <strike class="food__price--small">40.000d</strike>
+              <div class="food__price--nomal">35.550d</div>
+            </div>
+            <div class="food__add ml-3">+</div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between food__wrap mb-3">
+        <div class="d-flex align-items-start">
+          <img src="https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg" alt="">
+          <div class="ml-4">
+            <div class="food__name">Trà Sữa Trân Châu Đường Đen.</div>
+            <div class="food__des">Đã được đặt 110+</div>
+          </div>
+        </div>
+        <div>
+          <div class="d-flex">
+            <div class="food__price">
+              <strike class="food__price--small">40.000d</strike>
+              <div class="food__price--nomal">35.550d</div>
+            </div>
+            <div class="food__add ml-3">+</div>
+          </div>
+        </div>
+      </div>
     </div>
     <!--FOOTER-->
     <div class="footer">
@@ -136,10 +178,8 @@
   </div>
 </template>
 <script>
-import VueGallerySlideshow from 'vue-gallery-slideshow';
 export default {
   components: {
-    VueGallerySlideshow
   },
   data() {
     return {
@@ -243,59 +283,30 @@ export default {
   .content {
     width: 1200px;
     margin: 0 auto 200px;
-    .current-image {
-      width: 100%;
-      height: 700px;
-    }
-    .list-image {
-      width: 100px;
-      height: 100px;
-      background-size: cover;
-      cursor: pointer;
-      margin: 5px;
-      border-radius: 3px;
-      border: 1px solid lightgray;
-      object-fit: contain;
-    }
-    .book-room {
-      padding-bottom: 20px;
-      text-align: center;
-      width: 100%;
-      height: 100%;
-      min-height: 700px;
-      background-color: #333132;
-      h2 {
+    .food__wrap {
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgb(199, 197, 197);
+      .food__name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #000;
+      }
+      .food__price {
+        &--small {
+          font-size: 12px;
+        }
+      }
+      .food__add {
+        width: 40px;
+        height: 40px;
+        background-color: red;
         color: #fff;
-        margin: 0 0 30px 0;
-        padding: 30px 0;
-        border-bottom: 1px solid #fff;
-      }
-      label {
-        color: #c7c7c7;
-        font-weight: 500;
-        display: block;
-        margin-top: 25px;
-        margin-bottom: 2px;
-      }
-      .price {
-        display: block;
-        color: #999;
-      }
-      .book__options__input {
-        width: 100%;
-      }
-      .btn__book-room {
-        margin-top: 40px;
-        padding: 20px 0;
-        color: #fff;
-        background-color: #c59d5f;
-        transition: 0.3s;
-      }
-      .btn__book-room:hover {
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
         cursor: pointer;
-        background-color: #fff;
-        color: black;
-        font-weight: bold;
       }
     }
   }

@@ -111,6 +111,15 @@ const routes = [
       requiredAuth: false
     },
     component: view("RoomDetails"),
+  },
+  {
+    path: "/food",
+    name: "Food",
+    meta: {
+      layout: "CustomersLayout",
+      requiredAuth: false
+    },
+    component: view("Food"),
   }
 ];
 
