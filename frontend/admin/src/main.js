@@ -11,19 +11,22 @@ import plugins from "./plugins";
 import echo from "./plugins/echo";
 import MainLayout from "./layouts/MainLayout.vue";
 import GuestLayout from "./layouts/GuestLayout.vue";
+import CustomersLayout from "./layouts/CustomersLayout.vue";
 import SocialLayout from "./layouts/SocialLayout";
 import CustomerLayout from "./layouts/CustomerLayout";
 import { extend } from "vee-validate";
 import * as rules from "vee-validate/dist/rules";
 import { loadVeeValidate } from "@/plugins/vee-validate";
 import "./registerServiceWorker";
-import { BootstrapVue } from 'bootstrap-vue'
+import { BootstrapVue,  BootstrapVueIcons} from 'bootstrap-vue'
 
 
 Vue.use(BootstrapVue);
+Vue.use(BootstrapVueIcons)
 Vue.component("MainLayout", MainLayout);
 Vue.component("GuestLayout", GuestLayout);
 Vue.component("SocialLayout", SocialLayout);
+Vue.component("CustomersLayout", CustomersLayout);
 Vue.component("CustomerLayout", CustomerLayout);
 
 Object.keys(rules).forEach(rule => {
