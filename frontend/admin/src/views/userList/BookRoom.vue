@@ -9,9 +9,9 @@
         />
       </div>
     </div>
-    <div class="d-flex justify-content-center col-6">
-      <ValidationObserver ref="form" v-slot="{ handleSubmit }">
-        <form @submit.prevent="handleSubmit(bookRoom)" class="form">
+    <div class="m-auto col-6">
+      <ValidationObserver v-slot="{ handleSubmit }">
+        <form @submit.prevent="handleSubmit(bookRoom)" class="form" ref="form">
           <div class="m-auto">
             <div class="option">
               <label for="">Name</label>
@@ -30,10 +30,10 @@
               <label for="">Email</label>
               <ValidationProvider
                 name="Email"
-                rules="required"
+                rules="required|email"
                 v-slot="{ errors }"
               >
-                <input type="text" class="form-control" v-model="mail" />
+                <input type="text" class="form-control" v-model="email" />
                 <div class="text-left">
                   <span class="warning">{{ errors[0] }}</span>
                 </div>
@@ -52,30 +52,49 @@
                 </div>
               </ValidationProvider>
             </div>
-            <div class="option">
-              <label for="">CMND/PassPort</label>
-              <ValidationProvider
-                name="Age"
-                rules="required"
-                v-slot="{ errors }"
-              >
-                <input type="number" class="form-control" v-model="cmnd" />
-                <div class="text-left">
-                  <span class="warning">{{ errors[0] }}</span>
-                </div>
-              </ValidationProvider>
+            <div class="option row">
+              <b-col>
+                <label for="">Gender</label>
+                <ValidationProvider
+                  name="Birthday"
+                  rules="required"
+                  v-slot="{ errors }"
+                >
+                  <b-form-select
+                    class="position__select"
+                    v-model="gender"
+                    :options="genderOption"
+                  />
+                  <div class="text-left">
+                    <span class="warning">{{ errors[0] }}</span>
+                  </div>
+                </ValidationProvider>
+              </b-col>
+              <b-col>
+                <label for="">Phone</label>
+                <ValidationProvider
+                  name="Phone"
+                  rules="required"
+                  v-slot="{ errors }"
+                >
+                  <input type="number" class="form-control" v-model="phone" />
+                  <div class="text-left">
+                    <span class="warning">{{ errors[0] }}</span>
+                  </div>
+                </ValidationProvider>
+              </b-col>
             </div>
             <div class="option">
-              <label for="">Check In</label>
+              <label for="">Identity Card</label>
               <ValidationProvider
-                name="Check In"
+                name="Identity Card"
                 rules="required"
                 v-slot="{ errors }"
               >
                 <input
-                  type="datetime-local"
+                  type="number"
                   class="form-control"
-                  v-model="time_check_in"
+                  v-model="identity_card"
                 />
                 <div class="text-left">
                   <span class="warning">{{ errors[0] }}</span>
@@ -83,16 +102,33 @@
               </ValidationProvider>
             </div>
             <div class="option">
-              <label for="">Check Out</label>
+              <label for="">Start Time</label>
               <ValidationProvider
-                name="Check Out"
+                name="Start Time"
                 rules="required"
                 v-slot="{ errors }"
               >
                 <input
                   type="datetime-local"
                   class="form-control"
-                  v-model="time_check_out"
+                  v-model="start_time"
+                />
+                <div class="text-left">
+                  <span class="warning">{{ errors[0] }}</span>
+                </div>
+              </ValidationProvider>
+            </div>
+            <div class="option">
+              <label for="">End Time</label>
+              <ValidationProvider
+                name="End Time"
+                rules="required"
+                v-slot="{ errors }"
+              >
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  v-model="end_time"
                 />
                 <div class="text-left">
                   <span class="warning">{{ errors[0] }}</span>
@@ -121,11 +157,17 @@ export default {
   data() {
     return {
       name: null,
-      mail: null,
+      email: null,
       birthday: null,
-      cmnd: null,
-      time_check_in: null,
-      time_check_out: null,
+      phone: null,
+      identity_card: null,
+      start_time: null,
+      end_time: null,
+      gender: 1,
+      genderOption: [
+        { value: 0, text: "Male" },
+        { value: 1, text: "Female" },
+      ],
     };
   },
 
@@ -133,16 +175,47 @@ export default {
     console.log(this.id);
   },
   methods: {
-    bookRoom() {
+    async bookRoom() {
+      const payload = {
+        name: this.name,
+        email: this.email,
+        id: this.id,
+        birthday: this.birthday,
+        phone: this.phone,
+        identity_card: this.identity_card,
+        start_time: this.start_time,
+        end_time: this.end_time,
+        gender: this.gender,
+        password: 123456,
+      };
+      if(this.end_time <= this.start_time) {
+        alert("Ngay ket thuc phai lon hon ngay bat dau");
+        this.$refs['form'].reset();
+        return;
+      };
+      await this.$store
+        .dispatch("customer/bookRoom", payload)
+        .then((respone) => {
+          if(!respone.success) {
+            alert(respone.message);
+            return
+          }
+          this.getQrCode();
+        });
+    },
+
+    async getQrCode() {
       let imgSrc =
         "https://chart.googleapis.com/chart?cht=qr&chl=" +
-        this.mail +
+        this.email +
+        this.start_time +
+        this.id +
         "&chs=160x160&chld=L|0";
       const params = {
         imgSrc: imgSrc,
-        email: this.mail,
+        email: this.email,
       };
-      this.$store.dispatch("user/bookRoom", params);
+      await this.$store.dispatch("user/bookRoom", params);
     },
   },
 };
@@ -156,9 +229,6 @@ export default {
 label {
   font-size: 18px;
   font-weight: bold;
-}
-input {
-  width: 700px;
 }
 
 .option {

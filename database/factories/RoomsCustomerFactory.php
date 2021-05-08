@@ -27,7 +27,7 @@ class RoomsCustomerFactory extends Factory
             'customer_id' => random_int(1,10),
             'start_time' => '2021-04-29',
             'end_time' => '2021-05-01',
-            'status' => random_int(1,3)
+            'status' => random_int(1,2)
         ];
     }
 }

@@ -22,4 +22,13 @@ class CustomerController extends Controller
         return $result;
     }
 
+    public function bookRoom(Request $request)
+    {
+        $data = $request->only('name', 'email', 'birthday', 'password', 'gender', 'identity_card', 'phone');
+        $id = $request->only('id');
+        $time = $request->only('start_time', 'end_time');
+        $result = $this->customerRepository->bookRoom($data, $id, $time);
+        return $result;
+    }
+
 }

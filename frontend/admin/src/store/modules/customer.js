@@ -1,4 +1,4 @@
-import { listCustomers } from "@/api/customer.api";
+import { listCustomers, bookRoom } from "@/api/customer.api";
 
 export const state = {
   listCustomer: null,
@@ -20,6 +20,18 @@ export const actions = {
       listCustomers(payload)
         .then(response => {
           commit('setListCustomer', response.data);
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  bookRoom({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      bookRoom(payload)
+        .then(response => {
           resolve(response);
         })
         .catch(error => {

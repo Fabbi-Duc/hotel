@@ -2,14 +2,9 @@
   <div>
     <b-row class="mb-3">
       <b-col cols="3">
-        <label for="">FirstName</label>
+        <label for="">Name</label>
         <br />
-        <input type="text" class="form-control" v-model="firstName" />
-      </b-col>
-      <b-col cols="3">
-        <label for="">LastName</label>
-        <br />
-        <input type="text" class="form-control" v-model="lastName" />
+        <input type="text" class="form-control" v-model="name" />
       </b-col>
       <b-col>
         <button
@@ -69,12 +64,10 @@
 export default {
   data() {
     return {
-      firstName: '',
-      lastName: '',
+      name: '',
       fields: [
         { key: "numerical", label: "numerical" },
-        { key: "firstname", label: "firstname" },
-        { key: "lastname", label: "lastname" },
+        { key: "name", label: "lastname" },
         { key: "birthday", label: "birthday" },
         { key: "gender", label: "gender" },
         { key: "phone", label: "phone" },
@@ -103,8 +96,7 @@ export default {
   methods: {
     async getCustomers() {
       const params = {
-        firstname: this.firstName,
-        lastname: this.lastName,
+        name: this.name,
         perPage: this.paginate.perPage,
         page: this.paginate.page,
       };

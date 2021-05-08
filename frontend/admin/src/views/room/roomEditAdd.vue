@@ -285,6 +285,7 @@ export default {
             this.type = this.room.room_type_id;
             this.status = this.room.status;
             this.decription = this.room.decription;
+            this.floor = this.room.floor
           });
       }
     },

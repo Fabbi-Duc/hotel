@@ -36186,3 +36186,20 @@ Horizon started successfully.
 [2021-05-05 12:12:46][84e381c6-42c7-44cd-8993-646203c658c3] Processing: App\Events\SendNotification
 [2021-05-05 12:12:46][84e381c6-42c7-44cd-8993-646203c658c3] Processed:  App\Events\SendNotification
 Horizon started successfully.
+Horizon started successfully.
+[2021-05-08 06:55:17][7361d64f-8bfe-47b4-ae26-52a6f9d68f52] Processing: App\Events\SendNotification
+[2021-05-08 06:55:17][7361d64f-8bfe-47b4-ae26-52a6f9d68f52] Processed:  App\Events\SendNotification
+[2021-05-08 07:23:57][947baa97-6e88-4116-bc87-2fdbe64c34be] Processing: App\Events\SendNotification
+[2021-05-08 07:23:57][947baa97-6e88-4116-bc87-2fdbe64c34be] Processed:  App\Events\SendNotification
+[2021-05-08 08:18:32][4d03caad-5f1e-49e0-ad17-f38a3d99e53c] Processing: App\Events\SendNotification
+[2021-05-08 08:18:32][4d03caad-5f1e-49e0-ad17-f38a3d99e53c] Processed:  App\Events\SendNotification
+[2021-05-08 08:19:38][a5bc3f72-c7f8-42a7-9dd0-5f058177c7d2] Processing: App\Events\SendNotification
+[2021-05-08 08:19:38][a5bc3f72-c7f8-42a7-9dd0-5f058177c7d2] Processed:  App\Events\SendNotification
+[2021-05-08 08:34:25][d02e77e9-2e29-4d24-ac48-d72518bdec13] Processing: App\Events\SendNotification
+[2021-05-08 08:34:25][d02e77e9-2e29-4d24-ac48-d72518bdec13] Processed:  App\Events\SendNotification
+[2021-05-08 08:36:30][1ff474a8-1644-43d4-9647-acc193dc2b70] Processing: App\Events\SendNotification
+[2021-05-08 08:36:30][1ff474a8-1644-43d4-9647-acc193dc2b70] Processed:  App\Events\SendNotification
+[2021-05-08 08:38:03][09d2fa16-f994-41b5-bb49-b66ba975191f] Processing: App\Events\SendNotification
+[2021-05-08 08:38:03][09d2fa16-f994-41b5-bb49-b66ba975191f] Processed:  App\Events\SendNotification
+[2021-05-08 09:36:23][0566a157-8fe7-4d10-b72f-836e48f97c54] Processing: App\Events\SendNotification
+[2021-05-08 09:36:23][0566a157-8fe7-4d10-b72f-836e48f97c54] Processed:  App\Events\SendNotification

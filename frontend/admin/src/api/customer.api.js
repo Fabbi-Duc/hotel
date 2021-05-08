@@ -7,3 +7,11 @@ export const listCustomers = params => {
     params
   });
 };
+
+export const bookRoom = params => {
+  return request({
+    url: "/customer/book-room",
+    method: "post",
+    params
+  });
+};

@@ -10,15 +10,13 @@ class Customers extends Model
     use HasFactory;
 
     protected $fillable = [
-        'lastname',
+        'name',
         'email',
         'password',
-        'firstname',
         'gender',
         'phone',
         'birthday',
         'identity_card',
-        'image_user'
     ];
 
     public function getJWTIdentifier()

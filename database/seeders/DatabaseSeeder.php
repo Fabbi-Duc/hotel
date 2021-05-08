@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             RoomServiceFoodSeeder::class,
             RoomServiceParkSeeder::class,
             RoomServiceCleanSeeder::class,
+            RoomFoodsSeeder::class
         ]);
     }
 }
