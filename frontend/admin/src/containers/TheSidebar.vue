@@ -49,8 +49,8 @@ export default {
   },
   data()  {
     return {
-      receptionists: true,
-      admin: false,
+      receptionists: false,
+      admin: true,
     }
   }
 };

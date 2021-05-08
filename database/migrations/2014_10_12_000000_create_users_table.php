@@ -23,7 +23,9 @@ class CreateUsersTable extends Migration
             $table->string('firstname');
             $table->integer('gender');
             $table->integer('phone');
+            $table->string('image_user');
             $table->integer('position');
+            $table->date('birthday');
             $table->timestamps();
         });
     }
