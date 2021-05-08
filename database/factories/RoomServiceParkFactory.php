@@ -24,8 +24,8 @@ class RoomServiceParkFactory extends Factory
         return [
             'room_id' => random_int(1,10),
             'park_id' => random_int(1,10),
-            'start_time' => '2021-04-09',
-            'end_time' => '2021-05-01',
+            'start_time' => '2021-04-09T10:24',
+            'end_time' => '2021-05-01T10:24',
         ];
     }
 }

@@ -1,4 +1,4 @@
-import { listCustomers } from "@/api/customer.api";
+import { listCustomers, bookRoom, getInfoCustomer, updateBookRoom } from "@/api/customer.api";
 
 export const state = {
   listCustomer: null,
@@ -27,4 +27,40 @@ export const actions = {
         });
     });
   },
+
+  bookRoom({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      bookRoom(payload)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  getInfoCustomer({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      getInfoCustomer(id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  updateBookRoom({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      updateBookRoom(id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
 }
