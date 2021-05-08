@@ -16,8 +16,8 @@ class CreateBillsTable extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->integer('room_id');
-            $table->date('start_time');
-            $table->date('end_time');
+            $table->dateTimeTz('start_time');
+            $table->dateTimeTz('end_time');
             $table->integer('price')->nullable();
             $table->integer('status');
             $table->timestamps();

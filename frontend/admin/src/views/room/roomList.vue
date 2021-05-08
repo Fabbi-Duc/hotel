@@ -1,5 +1,5 @@
 <template>
-  <div vif="rooms">
+  <div v-if="rooms">
     <b-row class="mb-3">
       <b-col cols="3">
         <label for="">Name</label>
@@ -52,13 +52,23 @@
         <span v-if="row.item.status == 2" style="color: red">Hired</span>
         <span v-if="row.item.status == 3" style="color: orange">Reserve</span>
       </template>
+      <template #cell(room_type_id)="row">
+        <span v-if="row.item.room_type_id == 1">{{ types[0].text }}</span>
+        <span v-if="row.item.room_type_id == 2">{{ types[1].text }}</span>
+        <span v-if="row.item.room_type_id == 3">{{ types[2].text }}</span>
+        <span v-if="row.item.room_type_id == 4">{{ types[3].text }}</span>
+      </template>
       <template #cell(cost_first_hour)="row">
         <span v-if="row.item.room_type_id == 1">{{ roomType[0].cost_first_hour }}</span>
         <span v-if="row.item.room_type_id == 2">{{ roomType[1].cost_first_hour }}</span>
+        <span v-if="row.item.room_type_id == 3">{{ roomType[2].cost_first_hour }}</span>
+        <span v-if="row.item.room_type_id == 4">{{ roomType[3].cost_first_hour }}</span>
       </template>
       <template #cell(cost_next_hour)="row">
         <span v-if="row.item.room_type_id == 1">{{ roomType[0].cost_next_hour }}</span>
         <span v-if="row.item.room_type_id == 2">{{ roomType[1].cost_next_hour }}</span>
+        <span v-if="row.item.room_type_id == 3">{{ roomType[2].cost_next_hour }}</span>
+        <span v-if="row.item.room_type_id == 4">{{ roomType[3].cost_next_hour }}</span>
       </template>
       <template #cell(action)="row">
         <b-icon
@@ -67,13 +77,6 @@
           font-scale="1.5"
           class="deleteRoom"
           @click="deletRoom(row.item.id)"
-        >
-        </b-icon>
-        <b-icon
-          icon="info-circle"
-          variant="info"
-          font-scale="1.5"
-          class="detailRoom"
         >
         </b-icon>
         <b-icon
@@ -108,8 +111,10 @@ export default {
       rooms: null,
       id: null,
       types: [
-        { value: 1, text: "Vip" },
-        { value: 2, text: "Normal" },
+        { value: 1, text: "Vip One" },
+        { value: 2, text: "Normal One" },
+        { value: 3, text: "Vip Two" },
+        { value: 4, text: "Normal Two" },
       ],
       fields: [
         { key: "numerical", label: "Numerical" },

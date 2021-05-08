@@ -50,3 +50,8 @@ Route::post('/room/update', [RoomController::class, 'updateRoom'])->name('update
 Route::get('/load/comment', [RoomController::class, 'loadComment'])->name('loadComment');
 Route::get('/customer/list', [CustomerController::class, 'getCustomersList'])->name('getCustomersList');
 Route::get('/rooms', [RoomController::class, 'getRoomFloor'])->name('getRoomFloor');
+Route::post('/customer/book-room', [CustomerController::class, 'bookRoom'])->name('bookRoom');
+Route::get('/room-customer/{id}', [CustomerController::class, 'getInfoRoomCustomer'])->name('getInfoRoomCustomer');
+Route::get('/customer/{id}', [CustomerController::class, 'getInfoCustomer'])->name('getInfoCustomer');
+Route::post('/customer/{room_customer_id}', [CustomerController::class, 'updateBookRoom'])->name('updateBookRoom');
+Route::get('/pay/{id}', [CustomerController::class, 'pay'])->name('pay');
