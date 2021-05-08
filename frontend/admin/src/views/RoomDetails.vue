@@ -86,9 +86,9 @@
             required
           ></b-form-input>
           <label for="" class="text-left">CHECK-IN:</label>
-          <input type="date" v-model="checkIn" class="book__options__input form-control" />
+          <input type="datetime-local" v-model="checkIn" class="book__options__input form-control" />
           <label for="" class="text-left">CHECK-OUT:</label>
-          <input type="date" v-model="checkOut" class="book__options__input form-control" />
+          <input type="datetime-local" v-model="checkOut" class="book__options__input form-control" />
           <label for="" class="text-left">INITIAL PRICE:</label>
           <div class="text-left price">400$</div>
           <label for="" class="text-left">YOUR PRICE:</label>
