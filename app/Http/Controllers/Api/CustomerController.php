@@ -31,4 +31,28 @@ class CustomerController extends Controller
         return $result;
     }
 
+    public function getInfoRoomCustomer($id)
+    {
+        $result = $this->customerRepository->getInfoRoomCustomer($id);
+        return $result;
+    }
+
+    public function getInfoCustomer($id)
+    {
+        $result = $this->customerRepository->getInfoCustomer($id);
+        return $result;
+    }
+
+    public function updateBookRoom($room_customer_id) 
+    {
+        $result = $this->customerRepository->updateBookRoom($room_customer_id);
+        return $result;
+    }
+
+    public function pay($id)
+    {
+        $result = $this->customerRepository->pay($id);
+        return $result;
+    }
+
 }

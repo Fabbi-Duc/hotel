@@ -27,7 +27,7 @@ class CustomersFactory extends Factory
             'phone' => '0833910940',
             'gender' => random_int(0,1),
             'identity_card' => '152229678',
-            'email' => strtolower($this->faker->unique()->name) . "@gmail.com",
+            'email' => $this->faker->unique()->name. "@gmail.com",
             'password' => bcrypt(123456), // password
             'birthday' => '2021-04-29',
             'remember_token' => Str::random(10),

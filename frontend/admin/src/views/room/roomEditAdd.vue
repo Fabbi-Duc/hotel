@@ -192,8 +192,10 @@ export default {
       status: "",
       floor: "",
       types: [
-        { value: 1, text: "Vip" },
-        { value: 2, text: "Normal" },
+        { value: 1, text: "Vip One" },
+        { value: 2, text: "Normal One" },
+        { value: 3, text: "Vip Two" },
+        { value: 4, text: "Normal Two" },
       ],
       floorOptions: [
         { value: 1, text: "1" },

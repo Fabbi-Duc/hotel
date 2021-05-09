@@ -22,15 +22,14 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
             $perPage = $data['perPage'];
             $name = $data['name'];
 
-            if($data['name']) {
+            if ($data['name']) {
                 $list->where('name', 'LIKE', "%$name%");
             }
-            
+
             return [
                 'success' => true,
                 'data' => $list->paginate($perPage)
             ];
-
         } catch (\Exception $e) {
             return [
                 'success' => false,
@@ -44,21 +43,21 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
         try {
             $start_time = $time['start_time'];
             $end_time = $time['end_time'];
-            $data = DB::table('rooms_customers')->where('room_id', $id['id'])->get();
-            foreach($data as $room) {
-                if($room->start_time <= $start_time && $room->end_time >= $start_time) {
-    
+            $dataRoom = DB::table('rooms_customers')->where('room_id', $id['id'])->get();
+            foreach ($dataRoom as $room) {
+                if ($room->start_time <= $start_time && $room->end_time >= $start_time) {
+
                     return [
                         'success' => false,
                         'message' => 'Start Time not suitable'
                     ];
-                } else if($room->start_time <= $end_time && $room->end_time >= $end_time) {
-    
+                } else if ($room->start_time <= $end_time && $room->end_time >= $end_time) {
+
                     return [
                         'success' => false,
                         'message' => 'End Time not suitable'
                     ];
-                } else if($room->start_time >= $start_time && $room->end_time <= $end_time) {
+                } else if ($room->start_time >= $start_time && $room->end_time <= $end_time) {
                     return [
                         'success' => false,
                         'message' => 'Start Time and End Time not suitable'
@@ -82,8 +81,96 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
             $bill->status = 1;
             $bill->save();
 
+            DB::table('rooms')->where('id', $id['id'])->update(['status' => 3]);
+
+
             return [
                 'success' => true,
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function getInfoRoomCustomer($id)
+    {
+        try {
+            $room = DB::table('rooms_customers')->where('room_id', $id)->where('status', 1)->get();
+
+            foreach ($room as $data) {
+                $name = $this->model->where('id', $data->customer_id)->get('name');
+                $data->name = $name[0]->name;
+            }
+
+            return [
+                'success' => true,
+                'data' => $room
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function getInfoCustomer($room_customer_id)
+    {
+        try {
+            $customer = DB::table('rooms_customers')->find($room_customer_id);
+            $data = $this->model->find($customer->customer_id);
+            $data->start_time = $customer->start_time;
+            $data->end_time = $customer->end_time;
+            return [
+                'success' => true,
+                'data' => $data,
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function updateBookRoom($room_customer_id)
+    {
+        try {
+            $customer = DB::table('rooms_customers')->find($room_customer_id);
+            DB::table('rooms')->where('id', $customer->room_id)->update(['status' => 3]);
+            DB::table('rooms_customers')->where('id', $room_customer_id)->update(['status' => 2]);
+            return [
+                'success' => true,
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function pay($room_id)
+    {
+        try {
+            $room = DB::table('rooms_customers')->where('room_id', $room_id)->where('status', 2)->first();
+            $room_type = DB::table('rooms')->where('id', $room_id)->first();
+            $cost = DB::table('room_types')->where('id', $room_type->room_type_id)->first();
+            $first_date = strtotime($room->start_time);
+            $second_date = strtotime($room->end_time);
+            $datediff = abs($second_date - $first_date);
+            if($datediff <= 1) {
+                $data = $cost->cost_first_hour;
+            } else {
+                $data = $cost->cost_first_hour + (($datediff - 1)/(3600))*$cost->cost_next_hour;
+            };
+
+            return [
+                'success' => true,
+                'data' => $data,
             ];
         } catch (\Exception $e) {
             return [

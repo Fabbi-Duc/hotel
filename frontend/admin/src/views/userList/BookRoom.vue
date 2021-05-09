@@ -147,13 +147,14 @@
 
 <script>
 import { ValidationObserver, ValidationProvider } from "vee-validate";
+import moment from "moment";
 export default {
   components: {
     ValidationObserver,
     ValidationProvider,
   },
 
-  props: ["id"],
+  props: ["id", "user_id"],
   data() {
     return {
       name: null,
@@ -172,7 +173,9 @@ export default {
   },
 
   mounted() {
-    console.log(this.id);
+    if (this.user_id) {
+      this.getInfoCustomer(this.user_id);
+    }
   },
   methods: {
     async bookRoom() {
@@ -188,22 +191,41 @@ export default {
         gender: this.gender,
         password: 123456,
       };
-      if(this.end_time <= this.start_time) {
+      if (this.end_time <= this.start_time) {
         alert("Ngay ket thuc phai lon hon ngay bat dau");
-        this.$refs['form'].reset();
         return;
-      };
-      await this.$store
-        .dispatch("customer/bookRoom", payload)
-        .then((respone) => {
-          if(!respone.success) {
-            alert(respone.message);
-            return
-          }
-          this.getQrCode();
-        });
+      }
+      if (!this.user_id) {
+        await this.$store
+          .dispatch("customer/bookRoom", payload)
+          .then((respone) => {
+            if (!respone.success) {
+              alert(respone.message);
+              return;
+            }
+            this.getQrCode();
+          });
+      } else {
+        await this.$store.dispatch("customer/updateBookRoom", this.user_id);
+      }
     },
 
+    async getInfoCustomer(customer_id) {
+      await this.$store
+        .dispatch("customer/getInfoCustomer", customer_id)
+        .then((res) => {
+          this.name = res.data.name;
+          this.email = res.data.email;
+          this.birthday = res.data.birthday;
+          this.gender = res.data.gender;
+          this.phone = res.data.phone;
+          this.identity_card = res.data.identity_card;
+          this.start_time = moment(res.data.start_time).format(
+            "YYYY-MM-DDThh:mm"
+          );
+          this.end_time = moment(res.data.end_time).format("YYYY-MM-DDThh:mm");
+        });
+    },
     async getQrCode() {
       let imgSrc =
         "https://chart.googleapis.com/chart?cht=qr&chl=" +

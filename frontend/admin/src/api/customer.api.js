@@ -15,3 +15,17 @@ export const bookRoom = params => {
     params
   });
 };
+
+export const getInfoCustomer = id => {
+  return request({
+    url: "/customer/" + id,
+    method: "get"
+  })
+}
+
+export const updateBookRoom = id => {
+  return request({
+    url: "/customer/" + id,
+    method: "post"
+  });
+};
