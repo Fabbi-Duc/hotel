@@ -15,6 +15,21 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
         return Customers::class;
     }
 
+    public function registerCustomer($data)
+    {
+        try {
+            $room = $this->model->create($data);
+            return [
+                'success' => true
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
     public function getListCustomer($data)
     {
         try {

@@ -162,6 +162,15 @@ const routes = [
     ]
   },
   {
+    path: "/login-customer",
+    name: "LoginCustomer",
+    meta: {
+      layout: "MainLayout",
+      requiredAuth: false
+    },
+    component: page("LoginCustomer")
+  },
+  {
     path: "/customer",
     name: "Customer",
     meta: {

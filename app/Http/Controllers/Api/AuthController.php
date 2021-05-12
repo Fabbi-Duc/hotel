@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Enums\ErrorType;
 use App\Models\SocialAccount;
 use App\Models\User;
+use App\Models\Customers;
 use App\Services\Auth\AuthServiceInterface;
 use App\Services\Mail\MailServiceInterface;
 use Illuminate\Http\Request;
@@ -35,6 +36,15 @@ class AuthController extends ApiController
         return $this->sendSuccess($result['data']);
     }
 
+    public function loginCustomer(Request $request)
+    {
+        $result = $this->authService->loginCustomer($request->all());
+        if (!$result['success']) {
+            return $this->sendError(ErrorType::CODE_4010, ErrorType::STATUS_4010);
+        }
+
+        return $this->sendSuccess($result['data']);
+    }
     public function account()
     {
         $account = $this->authService->account();

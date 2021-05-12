@@ -14,3 +14,11 @@ export const account = () => {
     method: "get"
   });
 };
+
+export const loginCustomer = data => {
+  return request({
+    url: "/login-customer",
+    method: "post",
+    data
+  });
+};
