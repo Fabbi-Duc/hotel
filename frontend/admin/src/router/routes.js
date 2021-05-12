@@ -103,6 +103,16 @@ const routes = [
         component: view("customers/customerList")
       },
       {
+        path: "rooms/detail/:id",
+        name: "RoomDetail",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("room/detailRoom")
+      },
+      {
         path: "rooms",
         name: "Room",
         meta: {
@@ -114,6 +124,16 @@ const routes = [
       {
         path: "room/book/:id",
         name: "BookRoom",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("userList/BookRoom")
+      },
+      {
+        path: "room/book/:id/:user_id",
+        name: "BookRoomUpdate",
         meta: {
           layout: "MainLayout",
           requiredAuth: true

@@ -17,8 +17,8 @@ class CreateRoomServiceParkTable extends Migration
             $table->id();
             $table->integer('room_id');
             $table->integer('park_id');
-            $table->date('start_time');
-            $table->date('end_time');
+            $table->dateTimeTz('start_time');
+            $table->dateTimeTz('end_time');
             $table->timestamps();
         });
     }

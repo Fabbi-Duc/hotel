@@ -23,13 +23,11 @@ class CustomersFactory extends Factory
     public function definition()
     {
         return [
-            'lastname' => $this->faker->name,
-            'firstname' => $this->faker->name,
+            'name' => $this->faker->name,
             'phone' => '0833910940',
             'gender' => random_int(0,1),
             'identity_card' => '152229678',
-            'email' => strtolower($this->faker->unique()->lastName) . "@gmail.com",
-            'image_user' => 'https://image.shutterstock.com/image-photo/poster-above-white-cabinet-plant-260nw-1173139144.jpg',
+            'email' => $this->faker->unique()->name. "@gmail.com",
             'password' => bcrypt(123456), // password
             'birthday' => '2021-04-29',
             'remember_token' => Str::random(10),
