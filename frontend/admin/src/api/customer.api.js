@@ -7,3 +7,25 @@ export const listCustomers = params => {
     params
   });
 };
+
+export const bookRoom = params => {
+  return request({
+    url: "/customer/book-room",
+    method: "post",
+    params
+  });
+};
+
+export const getInfoCustomer = id => {
+  return request({
+    url: "/customer/" + id,
+    method: "get"
+  })
+}
+
+export const updateBookRoom = id => {
+  return request({
+    url: "/customer/" + id,
+    method: "post"
+  });
+};

@@ -23,8 +23,8 @@ class BillsFactory extends Factory
     {
         return [
             'room_id' => random_int(1,10),
-            'start_time' => '2021-04-29',
-            'end_time' => '2021-05-01',
+            'start_time' => '2021-04-29T10:24',
+            'end_time' => '2021-05-01T10:24',
             'price' => '300000',
             'status' => random_int(1,2),
         ];

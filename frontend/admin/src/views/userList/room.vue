@@ -37,15 +37,14 @@
             'image--hired': room.status == 3,
           }"
         >
-          <img
-            :src="room.image_url"
-            alt=""
-            class="w-100 h-100"
-          />
+          <img :src="room.image_url" alt="" class="w-100 h-100" />
           <div
-            class="price-room position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center"
+            class="price-room position-absolute w-100 h-100 text-center"
             style="background-color: black; left: 0; bottom: 0"
           >
+            <p style="color: white; font-size: 50px">
+              {{ room.name }}
+            </p>
             <p style="color: white; font-size: 50px">
               {{ room_type[room.room_type_id].text }}
             </p>
@@ -60,7 +59,13 @@
           </div>
         </div>
         <div class="btn justify-content-center align-items-center d-flex">
-          <button class="btn-info mr-3">Detail</button>
+          <button
+            v-if="room.status == 2"
+            class="btn-info mr-3"
+            @click="$router.push({ name: 'RoomDetailBook', params: { id: room.id } })"
+          >
+            Detail
+          </button>
           <button
             class="btn-primary"
             @click="bookRoom(room.id)"
@@ -68,7 +73,7 @@
           >
             Book Room
           </button>
-          <button class="btn-danger" v-else disabled>Book Room</button>
+          <button class="btn-danger" v-else>Pay</button>
         </div>
       </div>
     </div>
@@ -88,13 +93,25 @@ export default {
       ],
       room_type: [
         { value: "", text: "" },
-        { value: 1, text: "Vip" },
-        { value: 2, text: "Normal" },
+        { value: 1, text: "Vip One" },
+        { value: 2, text: "Normal One" },
+        { value: 3, text: "Vip Two" },
+        { value: 4, text: "Normal Two" },
       ],
 
-      cost_first_hour: [{ value: 1500000 }, { value: 1000000 }],
+      cost_first_hour: [
+        { value: 1500000 },
+        { value: 1000000 },
+        { value: 2000000 },
+        { value: 2500000 },
+      ],
 
-      cost_next_hour: [{ value: 1000000 }, { value: 700000 }],
+      cost_next_hour: [
+        { value: 1000000 },
+        { value: 700000 },
+        { value: 1500000 },
+        { value: 2000000 },
+      ],
     };
   },
 

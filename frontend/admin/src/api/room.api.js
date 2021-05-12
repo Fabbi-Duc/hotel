@@ -60,3 +60,10 @@ export const updateRoom = params => {
     params
   })
 }
+
+export const getInfoRoomCustomer = id => {
+  return request({
+    url: "/room-customer/" + id,
+    method: "get",
+  })
+}
