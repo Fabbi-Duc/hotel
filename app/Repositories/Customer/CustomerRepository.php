@@ -5,7 +5,10 @@ namespace App\Repositories\Customer;
 use App\Models\Customers;
 use App\Models\RoomsCustomer;
 use App\Models\Bills;
+use App\Models\RoomFoods;
+use App\Models\RoomServiceFood;
 use App\Repositories\RepositoryAbstract;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class CustomerRepository extends RepositoryAbstract implements CustomerRepositoryInterface
@@ -64,11 +67,15 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
                     ];
                 }
             }
-            $data['password'] = bcrypt($data['password']);
-            $customer = $this->model->create($data);
+            if(!$this->model->where('email', $data['email'])->get()) {
+                $data['password'] = bcrypt($data['password']);
+                $customer = $this->model->create($data);
+                $room->customer_id = $customer->get()->last()->id;
+            } else {
+                $room->customer_id = $this->model->where('email', $data['email'])->first()->customer_id;
+            }
             $room = new RoomsCustomer;
             $room->room_id = $id['id'];
-            $room->customer_id = $customer->get()->last()->id;
             $room->start_time = $time['start_time'];
             $room->end_time = $time['end_time'];
             $room->status = 2;
@@ -178,5 +185,48 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
                 'message' => $e->getMessage()
             ];
         }
+    }
+
+    public function food($data)
+    {
+        $id = $data['id'];
+        $room = DB::table('rooms_customers')->where('customer_id', $id)->where('status', 2)->first();
+        $room_food = DB::table('room_service_food')->where('room_id', $room->room_id)->where('status', 1)->first();
+        if($room_food) {   
+            foreach($data['food'] as $food_id)
+            {   
+                $food_room = new RoomFoods;
+                $food_room->food_id = $food_id['id'];
+                $food_room->count = $food_id['count'];
+                $food_room->room_service_food_id = $room_food->id;
+                $food_room->status = 1;
+
+                $food_room->save();
+            }
+        } else {
+            $service_food = new RoomServiceFood;
+            $service_food->room_id = $room->room_id;
+            $service_food->start_time = $room->start_time;
+            $service_food->end_time = $room->end_time;
+            $service_food->status = 1;
+            $service_food->cost = 0;
+            $service_food->save();
+
+
+            $service = DB::table('room_service_food')->where('room_id', $service_food->room_id)->get()->last()->id;
+            
+            foreach($data['food'] as $food_id) {
+                $food_room = new RoomFoods;
+                $food_room->food_id = $food_id['id'];
+                $food_room->count = $food_id['count'];
+                $food_room->room_service_food_id = $service;
+                $food_room->status = 1;
+                $food_room->save();
+            }
+        }
+
+        return [
+            'succuss' => true
+        ];
     }
 }

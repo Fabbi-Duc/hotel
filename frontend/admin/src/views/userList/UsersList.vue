@@ -62,12 +62,28 @@
       </template>
       <template #cell(gender)="row">
         <span>
-          {{
-            row.item.gender == 1
-            ? 'male'
-            : 'female'
-          }}
+          {{ row.item.gender == 1 ? "male" : "female" }}
         </span>
+      </template>
+      <template #cell(action)="row">
+        <b-icon
+          icon="trash"
+          variant="danger"
+          font-scale="1.5"
+          class="deleteRoom"
+          @click="deletRoom(row.item.id)"
+        >
+        </b-icon>
+        <b-icon
+          icon="pencil-square"
+          variant="dark"
+          font-scale="1.5"
+          class="updateRoom"
+          @click="
+            $router.push({ name: 'UsersUpdate', params: { id: row.item.id } })
+          "
+        >
+        </b-icon>
       </template>
     </b-table>
     <div class="pagination">
@@ -108,6 +124,7 @@ export default {
         { key: "gender", label: "gender" },
         { key: "phone", label: "phone" },
         { key: "email", label: "email" },
+        { key: "action", label: "action" },
       ],
       users: null,
       records: [
@@ -128,6 +145,10 @@ export default {
     this.getUsers();
   },
   methods: {
+    deletRoom(id) {
+      this.$store.dispatch('user/deleteUser', id);
+      this.getUsers();
+    },
     async getUsers() {
       const params = {
         firstname: this.firstName,
