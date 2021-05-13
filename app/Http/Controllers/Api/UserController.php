@@ -29,4 +29,33 @@ class UserController extends ApiController
         $data = $request->all();
         Mail::to($data['email'])->send(new SendMail($data['imgSrc']));
     } 
+
+    public function getInfoUser($id)
+    {   
+        $result = $this->userRepository->getInfoUser($id);
+        return $result;
+    }
+
+    public function deleteUser($id)
+    {
+        $result = $this->userRepository->deleteUser($id);
+        return $result;
+    }
+
+    public function createUser(Request $request)
+    {
+        $data = $request->all();
+        $result = $this->userRepository->createUser($data);
+
+        return $result;
+    }
+
+    public function updateUser(Request $request)
+    {
+        $data = $request->all();
+        $id = $request->only('id');
+        $result = $this->userRepository->updateUser($data, $id);
+
+        return $result;
+    }
 }

@@ -31,12 +31,15 @@ export default [
       {
         _name: "CSidebarNavDropdown",
         name: "User",
-        route: "/users",
         icon: "cil-puzzle",
         items: [
           {
             name: "Users List",
             to: "/users"
+          },
+          {
+            name: "Users Create",
+            to: "user/create"
           }
         ]
       },

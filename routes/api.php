@@ -38,6 +38,10 @@ Route::middleware('auth:api')->group(function () {
 });
 
 Route::get('/users/list', [UserController::class, 'getListUsers'])->name('getListUsers');
+Route::delete('/user/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
+Route::get('/user/detail/{id}', [UserController::class, 'getInfoUser'])->name('getInfoUser');
+Route::post('/user/create', [UserController::class, 'createUser'])->name('createUser');
+Route::post('/user/update', [UserController::class, 'updateUser'])->name('updateUser');
 Route::delete('/room/delete', [RoomController::class, 'deleteRoom'])->name('deleteRoom');
 Route::get('/rooms/list', [RoomController::class, 'getListRooms'])->name('getListRooms');
 Route::get('/qr-code', [UserController::class, 'sendMail'])->name('sendMailQr');
@@ -55,3 +59,4 @@ Route::get('/room-customer/{id}', [CustomerController::class, 'getInfoRoomCustom
 Route::get('/customer/{id}', [CustomerController::class, 'getInfoCustomer'])->name('getInfoCustomer');
 Route::post('/customer/{room_customer_id}', [CustomerController::class, 'updateBookRoom'])->name('updateBookRoom');
 Route::get('/pay/{id}', [CustomerController::class, 'pay'])->name('pay');
+Route::post('/food', [CustomerController::class, 'food'])->name('food');

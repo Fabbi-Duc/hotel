@@ -75,6 +75,25 @@ const routes = [
         component: view("room/roomList")
       },
       {
+        path: "users/:id",
+        name: "UsersUpdate",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("userList/createUpdateUser")
+      },
+      {
+        path: "user/create",
+        name: "UsersCreate",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("userList/createUpdateUser")
+      },
+      {
         path: "rooms/:id/update",
         name: "RoomUpdate",
         meta: {

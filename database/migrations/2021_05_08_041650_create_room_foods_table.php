@@ -17,6 +17,8 @@ class CreateRoomFoodsTable extends Migration
             $table->id();
             $table->integer('room_service_food_id');
             $table->integer('food_id');
+            $table->integer('count');
+            $table->integer('status');
             $table->timestamps();
         });
     }
