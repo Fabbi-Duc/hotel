@@ -1,4 +1,4 @@
-import { listUsers, bookRoom } from "@/api/user.api";
+import { listUsers, bookRoom, deleteUser, createUser, updateUser, getInfoUser } from "@/api/user.api";
 
 export const state = {
   listUsers: null,
@@ -37,6 +37,54 @@ export const actions = {
       bookRoom(payload)
         .then(response => {
           commit('setBookRoom', response.data);
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  getInfoUser({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      getInfoUser(id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  deleteUser ({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      deleteUser(id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  createUser ({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      createUser(params)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  updateUser ({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      updateUser(params)
+        .then(response => {
           resolve(response);
         })
         .catch(error => {

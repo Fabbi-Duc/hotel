@@ -24,6 +24,8 @@ class RoomFoodsFactory extends Factory
         return [
             'room_service_food_id' => random_int(1,10),
             "food_id" => random_int(1,10),
+            "count" => random_int(1,4),
+            "status" => random_int(1,3),
         ];
     }
 }

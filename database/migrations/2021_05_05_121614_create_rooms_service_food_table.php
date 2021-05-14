@@ -16,10 +16,9 @@ class CreateRoomsServiceFoodTable extends Migration
         Schema::create('room_service_food', function (Blueprint $table) {
             $table->id();
             $table->integer('room_id');
-            $table->integer('food_id');
             $table->dateTimeTz('start_time');
             $table->dateTimeTz('end_time');
-            $table->integer('cost');
+            $table->integer('cost')->nullable();
             $table->integer('status');
             $table->timestamps();
         });
