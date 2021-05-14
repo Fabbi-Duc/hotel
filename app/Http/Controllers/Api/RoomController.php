@@ -70,7 +70,7 @@ class RoomController extends Controller
 
     public function updateRoom(Request $request)
     {
-        $data = $request->only('name','code_room', 'room_type_id', 'status', 'decription', 'image_url');
+        $data = $request->only('name','code_room', 'room_type_id', 'status', 'decription', 'image_url', 'floor');
         $id = $request->only('id');
         $result = $this->roomRepository->updateRoom($data, $id);
         return $result;

@@ -62,4 +62,10 @@ class CustomerController extends Controller
         return $result;
     }
 
+    public function food(Request $request)
+    {
+        $result = $this->customerRepository->food($request->all());
+        return $result;
+    }
+
 }

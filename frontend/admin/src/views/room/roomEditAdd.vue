@@ -191,6 +191,7 @@ export default {
       decription: "",
       status: "",
       floor: "",
+      code_room: "",
       types: [
         { value: 1, text: "Vip One" },
         { value: 2, text: "Normal One" },
@@ -231,11 +232,11 @@ export default {
     async getRoom() {
       await this.$store.dispatch("room/getNameRoom").then((response) => {
         this.nameRoom = response.data;
-        console.log(this.nameRoom);
       });
     },
 
     async update() {
+      console.log(this.nameRoom);
       if (this.id) {
         const params = {
           name: this.name,
@@ -243,12 +244,11 @@ export default {
           status: this.status,
           image_url: this.pictureUrl,
           decription: this.decription,
-          code_room: "",
+          code_room: this.code_room,
           id: this.id,
           floor: this.floor
         };
         if (this.pictureUrl) {
-          console.log(params);
           await this.$store.dispatch("room/updateRoom", params);
         } else {
           alert("Vui long them anh vao");
@@ -287,7 +287,8 @@ export default {
             this.type = this.room.room_type_id;
             this.status = this.room.status;
             this.decription = this.room.decription;
-            this.floor = this.room.floor
+            this.floor = this.room.floor;
+            this.code_room = this.room.code_room
           });
       }
     },
