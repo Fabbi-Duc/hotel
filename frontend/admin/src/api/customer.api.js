@@ -1,5 +1,13 @@
 import request from "@/utils/request";
 
+export const registerCustomer = params => {
+  return request({
+    url: "/register-customer",
+    method: "post",
+    params
+  });
+};
+
 export const listCustomers = params => {
   return request({
     url: "/customer/list",
