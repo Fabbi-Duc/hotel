@@ -1,4 +1,4 @@
-import { listCustomers, bookRoom, getInfoCustomer, updateBookRoom } from "@/api/customer.api";
+import { listCustomers, bookRoom, getInfoCustomer, updateBookRoom, registerCustomer } from "@/api/customer.api";
 
 export const state = {
   listCustomer: null,
@@ -15,6 +15,19 @@ export const mutations = {
 };
 
 export const actions = {
+
+  registerCustomer({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      registerCustomer(payload)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
   getListCustomer({ commit }, payload) {
     return new Promise((resolve, reject) => {
       listCustomers(payload)

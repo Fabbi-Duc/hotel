@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/sign-in', [AuthController::class, 'signIn'])->name('signIn');
+Route::post('/login-customer', [AuthController::class, 'loginCustomer'])->name('loginCustomer');
 Route::post('sign-up', [AuthController::class, 'signUp'])->name('signUp');
 Route::get('auth/google/url', [AuthController::class, 'loginUrl']);
 Route::get('auth/google/callback', [AuthController::class, 'loginCallback']);
@@ -48,6 +49,7 @@ Route::post('/room/create', [RoomController::class, 'createRoom'])->name('create
 Route::get('/room', [RoomController::class, 'getNameRoom'])->name('getNameRoom');
 Route::post('/room/update', [RoomController::class, 'updateRoom'])->name('updateRoom');
 Route::get('/load/comment', [RoomController::class, 'loadComment'])->name('loadComment');
+Route::post('/register-customer', [CustomerController::class, 'registerCustomer'])->name('registerCustomer');
 Route::get('/customer/list', [CustomerController::class, 'getCustomersList'])->name('getCustomersList');
 Route::get('/rooms', [RoomController::class, 'getRoomFloor'])->name('getRoomFloor');
 Route::post('/customer/book-room', [CustomerController::class, 'bookRoom'])->name('bookRoom');

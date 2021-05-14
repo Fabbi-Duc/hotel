@@ -78,7 +78,7 @@
                     <strike class="food__price--small">{{
                       item.price_old
                     }}</strike>
-                    <div class="food__price--nomal">{{ Intl.NumberFormat().format(item.price_new) }}</div>
+                    <div class="food__price--nomal">{{ Intl.NumberFormat().format(item.price_new) }}đ</div>
                   </div>
                   <div class="food__add" @click="addCart(index)">+</div>
                 </div>
@@ -101,7 +101,7 @@
                 <div class="food__selected__name">
                   {{ item.name }}
                 </div>
-                <div class="food__selected__price">{{ item.price_new }}</div>
+                <div class="food__selected__price">{{ Intl.NumberFormat().format(item.price_new) }}đ</div>
                 <div
                   class="food__selected__option d-flex justify-content-center"
                 >
@@ -114,7 +114,7 @@
             </div>
             <div class="total-price text-center">
               <div class="total-price__label">TOTAL PRICE</div>
-              <div class="total-price__value">{{ Intl.NumberFormat().format(totalPrice) ? totalPrice : 0 }}</div>
+              <div class="total-price__value">{{ Intl.NumberFormat().format(totalPrice) }}đ</div>
             </div>
             <div class="book__food text-center">ORDER</div>
           </div>
@@ -195,6 +195,7 @@ export default {
     return {
       listFood: [
         {
+          id: 1,
           name: "Trà Sữa Trân Châu Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -202,6 +203,7 @@ export default {
             "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
         },
         {
+          id: 2,
           name: "Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -209,6 +211,7 @@ export default {
             "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
         },
         {
+          id: 3,
           name: "Trà Sữa.",
           price_old: "40000",
           price_new: "35000",
@@ -216,6 +219,7 @@ export default {
             "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
         },
         {
+          id: 4,
           name: "Trà Sữa.",
           price_old: "40000",
           price_new: "35000",
@@ -223,6 +227,7 @@ export default {
             "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
         },
         {
+          id: 5,
           name: "Trà Sữa.",
           price_old: "40000",
           price_new: "35000",
@@ -230,6 +235,7 @@ export default {
             "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
         },
         {
+          id: 6,
           name: "Trà Sữa Trân Châu Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -237,6 +243,7 @@ export default {
             "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
         },
         {
+          id: 7,
           name: "Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -244,6 +251,7 @@ export default {
             "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
         },
         {
+          id: 8,
           name: "Trà Sữa Trân Châu Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -251,6 +259,7 @@ export default {
             "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
         },
         {
+          id: 9,
           name: "Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -258,6 +267,7 @@ export default {
             "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
         },
         {
+          id: 10,
           name: "Trà Sữa Trân Châu Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -265,6 +275,7 @@ export default {
             "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
         },
         {
+          id: 11,
           name: "Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -272,6 +283,7 @@ export default {
             "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
         },
         {
+          id: 12,
           name: "Trà Sữa Trân Châu Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -279,6 +291,7 @@ export default {
             "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
         },
         {
+          id: 13,
           name: "Đường Đen.",
           price_old: "40000",
           price_new: "35000",
@@ -304,7 +317,9 @@ export default {
     },
     addCart(index) {
       if (this.listFoodSelected.length < 1) {
-        this.listFood[index].quantity = 1;
+        if (this.listFood[index].quantity !== 1) {
+          this.listFood[index].quantity = 1;
+        }
         this.listFoodSelected.push(this.listFood[index]);
         this.$forceUpdate();
       } else if (this.listFoodSelected.length >= 1) {
@@ -338,6 +353,9 @@ export default {
       })
     },
     deleteAllCart() {
+      for (let i = 0; i < this.listFood.length; i++) {
+        delete this.listFood[i].quantity;
+      }
       this.listFoodSelected = [];
     }
   },

@@ -15,6 +15,13 @@ class CustomerController extends Controller
         $this->customerRepository = $customerRepository;
     }
 
+    public function registerCustomer(Request $request)
+    {
+        $data = $request->all();
+        $result = $this->customerRepository->registerCustomer($data);
+        return $result;   
+    }
+
     public function getCustomersList(Request $request)
     {
         $data = $request->all();
