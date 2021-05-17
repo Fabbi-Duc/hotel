@@ -14,4 +14,8 @@ interface CustomerRepositoryInterface extends RepositoryInterface
     public function updateBookRoom($room_customer_id);
     public function pay($room_id);
     public function food($data);
+    public function getFood($data);
+    public function getListFoodOrder($room_service_id);
+    public function getListOrder($data);
+    public function updateListFood($room_service_food_id);
 }

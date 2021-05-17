@@ -11,7 +11,7 @@ export default {
     layout() {
       return this.$route.meta.layout || "GuestLayout";
     }
-  }
+  },
 };
 </script>
 

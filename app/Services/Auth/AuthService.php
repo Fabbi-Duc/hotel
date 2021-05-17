@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Services\Auth;
-use App\Models\Customers;
+// use App\Models\Customers;
 
 class AuthService implements AuthServiceInterface
 {
     private $guard;
+    private $customers;
 
-    public function model()
-    {
-        return Customers::class;
-    }
+    // public function model()
+    // {
+    //     return Customers::class;
+    // }
 
     public function __construct()
     {
@@ -79,5 +80,9 @@ class AuthService implements AuthServiceInterface
     public function account()
     {
         return $this->guard->user();
+    }
+
+    public function accountCustomer() {
+        return $this->customers->user();
     }
 }

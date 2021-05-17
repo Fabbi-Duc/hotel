@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/sign-in', [AuthController::class, 'signIn'])->name('signIn');
 Route::post('/login-customer', [AuthController::class, 'loginCustomer'])->name('loginCustomer');
 Route::post('sign-up', [AuthController::class, 'signUp'])->name('signUp');
+Route::get('customer', [AuthController::class, 'accountCustomer'])->name('accountCustomer');
 Route::get('auth/google/url', [AuthController::class, 'loginUrl']);
 Route::get('auth/google/callback', [AuthController::class, 'loginCallback']);
 Route::get('/send-mail', [AuthController::class, 'sendMail'])->name('sendMail');
@@ -62,3 +63,7 @@ Route::get('/customer/{id}', [CustomerController::class, 'getInfoCustomer'])->na
 Route::post('/customer/{room_customer_id}', [CustomerController::class, 'updateBookRoom'])->name('updateBookRoom');
 Route::get('/pay/{id}', [CustomerController::class, 'pay'])->name('pay');
 Route::post('/food', [CustomerController::class, 'food'])->name('food');
+Route::get('/food/list', [CustomerController::class, 'getFood'])->name('getFood');
+Route::get('/list-food-order/{room_id}', [CustomerController::class, 'getListFoodOrder'])->name('getListFoodOrder');
+Route::get('/list-order', [CustomerController::class, 'getListOrder'])->name('getListOrder');
+Route::get('/update-order/{room_serivce_food_id}', [CustomerController::class, 'updateListFood'])->name('updateListFood');

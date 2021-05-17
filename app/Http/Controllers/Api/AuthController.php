@@ -45,6 +45,13 @@ class AuthController extends ApiController
 
         return $this->sendSuccess($result['data']);
     }
+
+    public function accountCustomer() 
+    {
+        $account = $this->authService->accountCustomer();
+
+        return $this->sendSuccess($account);
+    }
     public function account()
     {
         $account = $this->authService->account();

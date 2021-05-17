@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import * as types from "../mutation.types";
-import { account, signIn, loginCustomer } from "@/api/auth.api";
+import { account, signIn, loginCustomer, accountCustomer } from "@/api/auth.api";
 
 export const state = {
   accessToken: Cookies.get("access_token"),
@@ -49,6 +49,19 @@ export const actions = {
   getAccount({ commit }) {
     return new Promise((resolve, reject) => {
       account()
+        .then(response => {
+          resolve(response);
+          commit(types.AUTH.ACCOUNT, response.data);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  getAccountCustomer({ commit }) {
+    return new Promise((resolve, reject) => {
+      accountCustomer()
         .then(response => {
           resolve(response);
           commit(types.AUTH.ACCOUNT, response.data);

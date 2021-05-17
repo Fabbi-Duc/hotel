@@ -1,4 +1,4 @@
-import { listCustomers, bookRoom, getInfoCustomer, updateBookRoom, registerCustomer } from "@/api/customer.api";
+import { listCustomers, bookRoom, getInfoCustomer, updateBookRoom, registerCustomer, getFood, order, listOrder, listFoodOrder } from "@/api/customer.api";
 
 export const state = {
   listCustomer: null,
@@ -68,6 +68,54 @@ export const actions = {
   updateBookRoom({ commit }, id) {
     return new Promise((resolve, reject) => {
       updateBookRoom(id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  getFood({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      getFood(params)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  order({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      order(params)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  listOrder({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      listOrder(params)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  listFoodOrder({ commit }, room_service_food_id) {
+    return new Promise((resolve, reject) => {
+      listFoodOrder(room_service_food_id)
         .then(response => {
           resolve(response);
         })
