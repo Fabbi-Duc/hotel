@@ -15,6 +15,13 @@ export const account = () => {
   });
 };
 
+export const accountCustomer = () => {
+  return request({
+    url: "/customer",
+    method: "get"
+  });
+};
+
 export const loginCustomer = data => {
   return request({
     url: "/login-customer",

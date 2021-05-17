@@ -68,4 +68,28 @@ class CustomerController extends Controller
         return $result;
     }
 
+    public function getFood(Request $request)
+    {
+        $result = $this->customerRepository->getFood($request->all());
+        return $result;
+    }
+
+    public function getListFoodOrder($room_id)
+    {
+        $result = $this->customerRepository->getListFoodOrder($room_id);
+        return $result;
+    }
+
+    public function getListOrder(Request $request)
+    {
+        $result = $this->customerRepository->getListOrder($request->all());
+        return $result;
+    }
+
+    public function updateListFood($room_service_food_id)
+    {
+        $result = $this->customerRepository->updateListFood($room_service_food_id);
+        return $result;
+    }
+
 }

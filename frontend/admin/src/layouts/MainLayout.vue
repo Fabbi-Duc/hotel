@@ -10,8 +10,7 @@ export default {
   data() {
     return {};
   },
-  created() {
-  },
+  created() {},
   mounted() {
     this.sendNotification();
   },
@@ -19,9 +18,9 @@ export default {
     sendNotification() {
       this.$store.dispatch("notification/sendNotificationSystem", {
         message: "aaa",
-        user: "bbb"
+        user: "bbb",
       });
-    }
-  }
+    },
+  },
 };
 </script>

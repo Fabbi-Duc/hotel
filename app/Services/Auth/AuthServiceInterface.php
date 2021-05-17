@@ -9,4 +9,6 @@ interface AuthServiceInterface
     public function loginCustomer($data);
 
     public function account();
+
+    public function accountCustomer();
 }

@@ -51,9 +51,16 @@
     </div>
     <div class="content" style="margin-top: 150px">
       <b-row class="mt-5">
-        <b-col md="9">
-          <h2 style="text-transform: uppercase;" class="mb-4">List of dishes</h2>
-          <b-row class="" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; padding: 10px 0">
+        <b-col md="9" v-if="listFood">
+          <h2 style="text-transform: uppercase" class="mb-4">List of dishes</h2>
+          <b-row
+            class=""
+            style="
+              box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+                rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+              padding: 10px 0;
+            "
+          >
             <b-col
               md="4"
               class="food__wrap mb-3"
@@ -69,39 +76,60 @@
                   background-color: rgba(226, 230, 235, 1);
                 "
               >
-                <img :src="item.image" alt="" width="120px" height="120px" />
+                <img
+                  :src="item.image_url"
+                  alt=""
+                  width="120px"
+                  height="120px"
+                />
                 <div
                   class="d-flex flex-column justify-content-between align-items-start ml-3 h-100"
                 >
                   <div>
                     <div class="food__name">{{ item.name }}</div>
-                    <strike class="food__price--small">{{
-                      item.price_old
-                    }}</strike>
-                    <div class="food__price--nomal">{{ Intl.NumberFormat().format(item.price_new) }}đ</div>
+                    <div class="food__price--nomal">
+                      {{ Intl.NumberFormat().format(item.cost) }}đ
+                    </div>
                   </div>
-                  <div class="food__add" @click="addCart(index)">+</div>
+                  <div class="food__add" @click="addCart(index, item.id)">
+                    +
+                  </div>
                 </div>
               </div>
             </b-col>
           </b-row>
+          <div class="pagination">
+            <b-pagination
+              v-model="paginate.page"
+              :total-rows="paginate.total"
+              :per-page="paginate.perPage"
+              aria-controls="my-table"
+              @change="changePage"
+            >
+            </b-pagination>
+          </div>
         </b-col>
         <b-col md="3">
           <h2 class="text-center mb-4">CART</h2>
           <div v-if="listFoodSelected.length > 0">
-            <div
-              class="food__selected text-center"
-            >
+            <div class="food__selected text-center">
               <div
                 class="mb-4"
                 v-for="(item, index) in listFoodSelected"
                 :key="index"
               >
-                <img :src="item.image" alt="" width="120px" height="120px" />
+                <img
+                  :src="item.image_url"
+                  alt=""
+                  width="120px"
+                  height="120px"
+                />
                 <div class="food__selected__name">
                   {{ item.name }}
                 </div>
-                <div class="food__selected__price">{{ Intl.NumberFormat().format(item.price_new) }}đ</div>
+                <div class="food__selected__price">
+                  {{ Intl.NumberFormat().format(item.cost) }}đ
+                </div>
                 <div
                   class="food__selected__option d-flex justify-content-center"
                 >
@@ -110,13 +138,17 @@
                   <div class="plus" @click="plus(index)">+</div>
                 </div>
               </div>
-              <div class="delete-all-cart" @click="deleteAllCart">DELETE ALL</div>
+              <div class="delete-all-cart" @click="deleteAllCart">
+                DELETE ALL
+              </div>
             </div>
             <div class="total-price text-center">
               <div class="total-price__label">TOTAL PRICE</div>
-              <div class="total-price__value">{{ Intl.NumberFormat().format(totalPrice) }}đ</div>
+              <div class="total-price__value">
+                {{ Intl.NumberFormat().format(totalPrice) }}đ
+              </div>
             </div>
-            <div class="book__food text-center">ORDER</div>
+            <div class="book__food text-center" @click="order()">ORDER</div>
           </div>
           <div
             v-else
@@ -129,7 +161,7 @@
       </b-row>
     </div>
     <!--FOOTER-->
-    <div class="footer">
+    <div class="footer" v-if="!this.id">
       <div class="footer__wrap">
         <b-row>
           <b-col md="4" class="text-center">
@@ -191,131 +223,59 @@
 <script>
 export default {
   components: {},
+
+  props: ["id"],
   data() {
     return {
-      listFood: [
-        {
-          id: 1,
-          name: "Trà Sữa Trân Châu Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
-        },
-        {
-          id: 2,
-          name: "Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
-        },
-        {
-          id: 3,
-          name: "Trà Sữa.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
-        },
-        {
-          id: 4,
-          name: "Trà Sữa.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
-        },
-        {
-          id: 5,
-          name: "Trà Sữa.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
-        },
-        {
-          id: 6,
-          name: "Trà Sữa Trân Châu Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
-        },
-        {
-          id: 7,
-          name: "Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
-        },
-        {
-          id: 8,
-          name: "Trà Sữa Trân Châu Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
-        },
-        {
-          id: 9,
-          name: "Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
-        },
-        {
-          id: 10,
-          name: "Trà Sữa Trân Châu Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
-        },
-        {
-          id: 11,
-          name: "Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
-        },
-        {
-          id: 12,
-          name: "Trà Sữa Trân Châu Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg",
-        },
-        {
-          id: 13,
-          name: "Đường Đen.",
-          price_old: "40000",
-          price_new: "35000",
-          image:
-            "https://images.foody.vn/res/g68/678691/s120x120/5a261c61-f993-45d8-bb2c-26063c1a-1fa1a5eb-210405170946.jpeg",
-        }
-      ],
+      listFood: null,
       listFoodSelected: [],
-      totalPrice: 0
+      totalPrice: 0,
+      paginate: {
+        perPage: 5,
+        total: 50,
+        page: 1,
+      },
     };
   },
+
+  mounted() {
+    this.getFood();
+  },
   watch: {
-    listFoodSelected: function() {
+    listFoodSelected: function () {
       this.getTotalPrice();
-    }
+    },
   },
   methods: {
+    order() {
+      const params = {
+        id: this.id,
+        food: this.listFoodSelected
+      };
+      this.$store.dispatch("customer/order", params)
+    },
+    async changePage(page) {
+      this.paginate.page = page;
+      await this.getFood();
+    },
+    async getFood() {
+      const params = {
+        per_page: this.paginate.perPage,
+        page: this.paginate.page,
+      };
+
+      this.$store.dispatch("customer/getFood", params).then((response) => {
+        this.listFood = response.data.data;
+        this.paginate.total = response.data.total;
+      });
+    },
     onSlideStart(slide) {
       this.sliding = true;
     },
     onSlideEnd(slide) {
       this.sliding = false;
     },
-    addCart(index) {
+    addCart(index, id) {
       if (this.listFoodSelected.length < 1) {
         if (this.listFood[index].quantity !== 1) {
           this.listFood[index].quantity = 1;
@@ -323,13 +283,18 @@ export default {
         this.listFoodSelected.push(this.listFood[index]);
         this.$forceUpdate();
       } else if (this.listFoodSelected.length >= 1) {
-        if (this.listFood[index].quantity == 1) {
-          alert("Món ăn đã có trong giỏ hàng");
-        } else {
-          this.listFood[index].quantity = 1;
-          this.listFoodSelected.push(this.listFood[index]);
-          this.$forceUpdate();
+        for (let i = 0; i < this.listFoodSelected.length; i++) {
+          if (this.listFoodSelected[i].id == id) {
+            this.listFoodSelected[i].quantity++;
+            this.$forceUpdate();
+            this.getTotalPrice();
+            return;
+          }
         }
+        this.listFood[index].quantity = 1;
+        this.listFoodSelected.push(this.listFood[index]);
+        this.$forceUpdate();
+        this.getTotalPrice();
       }
     },
     plus(index) {
@@ -347,17 +312,17 @@ export default {
     },
     getTotalPrice() {
       this.totalPrice = 0;
-      this.listFoodSelected.forEach(element => {
-        var totalOneProduct = element.price_new * element.quantity;
+      this.listFoodSelected.forEach((element) => {
+        var totalOneProduct = element.cost * element.quantity;
         this.totalPrice += totalOneProduct;
-      })
+      });
     },
     deleteAllCart() {
       for (let i = 0; i < this.listFood.length; i++) {
         delete this.listFood[i].quantity;
       }
       this.listFoodSelected = [];
-    }
+    },
   },
 };
 </script>
@@ -462,7 +427,7 @@ export default {
     overflow-y: scroll;
     transition: 0.5s;
     border-radius: 3px;
-    background-color: #FFF;
+    background-color: #fff;
     padding: 10px 40px;
     color: #6d6f71;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -495,13 +460,13 @@ export default {
         border-radius: 10%;
         cursor: pointer;
         user-select: none;
-        color: #FFF;
+        color: #fff;
       }
     }
   }
   .delete-all-cart {
-    padding: 5px 10px; 
-    border: 1px solid red; 
+    padding: 5px 10px;
+    border: 1px solid red;
     font-weight: 600;
     cursor: pointer;
     margin-bottom: 10px;
@@ -509,7 +474,7 @@ export default {
   }
   .delete-all-cart:hover {
     background-color: red;
-    color: #FFF;
+    color: #fff;
   }
   .total-price {
     &__label {

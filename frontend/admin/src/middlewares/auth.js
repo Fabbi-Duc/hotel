@@ -10,6 +10,7 @@ export default function auth({ to, next }) {
       next({ name: "SignIn" });
     } else if (token && tokenStore) {
       store.dispatch("auth/getAccount");
+      store.dispatch("auth/getAccountCustomer");
     }
     next();
   } else {

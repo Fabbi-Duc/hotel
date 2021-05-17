@@ -67,6 +67,13 @@
             Detail
           </button>
           <button
+            v-if="room.status == 3"
+            class="btn-info mr-3"
+            @click="$router.push({ name: 'RoomFood', params: { id: room.id } })"
+          >
+            Food
+          </button>
+          <button
             class="btn-primary"
             @click="bookRoom(room.id)"
             v-if="room.status != 3"

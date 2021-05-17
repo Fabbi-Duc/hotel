@@ -27,7 +27,7 @@ class RoomServiceFoodFactory extends Factory
             'start_time' => '2021-04-29T10:24',
             'end_time' => '2021-05-01T10:24',
             'cost' => '15000',
-            'status' => random_int(1,2),
+            'status' => random_int(1,3),
         ];
     }
 }

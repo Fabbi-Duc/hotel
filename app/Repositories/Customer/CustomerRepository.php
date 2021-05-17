@@ -82,18 +82,20 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
                     ];
                 }
             }
+
+            $room = new RoomsCustomer;
             if(!$this->model->where('email', $data['email'])->get()) {
                 $data['password'] = bcrypt($data['password']);
                 $customer = $this->model->create($data);
                 $room->customer_id = $customer->get()->last()->id;
+                $room->status = 2;
             } else {
-                $room->customer_id = $this->model->where('email', $data['email'])->first()->customer_id;
+                $room->customer_id = $this->model->where('email', $data['email'])->first()->id;
+                $room->status = 1;
             }
-            $room = new RoomsCustomer;
             $room->room_id = $id['id'];
             $room->start_time = $time['start_time'];
             $room->end_time = $time['end_time'];
-            $room->status = 2;
             $room->save();
 
             $bill = new Bills;
@@ -204,15 +206,18 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
 
     public function food($data)
     {
+        // dd($data);
         $id = $data['id'];
-        $room = DB::table('rooms_customers')->where('customer_id', $id)->where('status', 2)->first();
-        $room_food = DB::table('room_service_food')->where('room_id', $room->room_id)->where('status', 1)->first();
+        $room = DB::table('rooms_customers')->where('room_id', $id)->where('status', 2)->first();
+        $room_food = DB::table('room_service_food')->where('room_id', $id)->where('status', 1)->first();
+        // dd($room_food);
         if($room_food) {   
             foreach($data['food'] as $food_id)
             {   
+                $object = json_decode($food_id);
                 $food_room = new RoomFoods;
-                $food_room->food_id = $food_id['id'];
-                $food_room->count = $food_id['count'];
+                $food_room->food_id = $object->id;
+                $food_room->count = $object->quantity;
                 $food_room->room_service_food_id = $room_food->id;
                 $food_room->status = 1;
 
@@ -229,11 +234,11 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
 
 
             $service = DB::table('room_service_food')->where('room_id', $service_food->room_id)->get()->last()->id;
-            
             foreach($data['food'] as $food_id) {
                 $food_room = new RoomFoods;
-                $food_room->food_id = $food_id['id'];
-                $food_room->count = $food_id['count'];
+                $object = json_decode($food_id);
+                $food_room->food_id = $object->id;
+                $food_room->count = $object->quantity;
                 $food_room->room_service_food_id = $service;
                 $food_room->status = 1;
                 $food_room->save();
@@ -243,5 +248,76 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
         return [
             'succuss' => true
         ];
+    }
+
+    public function getFood($data) 
+    {
+        try {
+            $food = DB::table('foods');
+
+            return [
+                'success' => true,
+                'data' => $food->paginate($data['per_page'])
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function getListFoodOrder($room_service_id)
+    {
+        try {
+            $food = DB::table('room_foods');
+            $room_service_food = $food->leftJoin('foods', 'room_foods.food_id', '=', 'foods.id')->where("room_foods.room_service_food_id", $room_service_id)->get();
+
+            return [
+                'success' => true,
+                'data' => $room_service_food
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function getListOrder($data)
+    {
+        try {
+            $list = DB::table('rooms')->leftJoin('room_service_food', 'room_service_food.room_id', '=', 'rooms.id')->where('room_service_food.status', 2)->paginate(5);
+            
+            return [
+                'success' => true,
+                'data' => $list
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function updateListFood($room_service_food_id)
+    {
+        try{
+            $list_food = DB::table("room_foods")->where('room_service_food_id', $room_service_food_id);
+            $list_food->update(['status' => 2]);
+            $list = DB::table('room_service_food')->where('id', $room_service_food_id);
+            $list->update(['status' => 1]);
+            return [
+                'success' => true
+            ];
+
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
     }
 }

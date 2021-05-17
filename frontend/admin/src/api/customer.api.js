@@ -37,3 +37,34 @@ export const updateBookRoom = id => {
     method: "post"
   });
 };
+
+export const getFood = params => {
+  return request({
+    url: "/food/list",
+    method: "get",
+    params
+  });
+};
+
+export const order = params => {
+  return request({
+    url: "/food",
+    method: "post",
+    params
+  });
+};
+
+export const listOrder = (params) => {
+  return request({
+    url: "/list-order",
+    method: "get",
+    params
+  });
+};
+
+export const listFoodOrder = (room_service_food_id) => {
+  return request({
+    url: "/list-food-order/" + room_service_food_id,
+    method: "get"
+  });
+};

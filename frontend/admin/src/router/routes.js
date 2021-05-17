@@ -151,6 +151,16 @@ const routes = [
         component: view("userList/BookRoom")
       },
       {
+        path: "room/:id/food",
+        name: "RoomFood",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: false
+        },
+        props: true,
+        component: view("Food"),
+      },
+      {
         path: "room/book/:id/:user_id",
         name: "BookRoomUpdate",
         meta: {
@@ -159,6 +169,25 @@ const routes = [
         },
         props: true,
         component: view("userList/BookRoom")
+      },
+      {
+        path: "list-food-order",
+        name: "ListFoodOrder",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("room/listFood")
+      },
+      {
+        path: "list-order/:id",
+        name: "FoodListOrders",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("room/listFoodOrder")
       },
       {
         path: "messages",
