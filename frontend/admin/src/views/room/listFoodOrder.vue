@@ -1,7 +1,12 @@
 <template>
   <div class="list-food-order">
     <div class="row">
-      <div class="col-md-4" v-for="(food, index) in listFood" :key="index" style="margin-bottom: 50px">
+      <div
+        class="col-md-4"
+        v-for="(food, index) in listFood"
+        :key="index"
+        style="margin-bottom: 50px"
+      >
         <div class="food mb-3 w-100">
           <img :src="food.image_url" alt="" class="w-100" />
         </div>
@@ -9,8 +14,8 @@
       </div>
     </div>
 
-    <div class="btn-submit text-center">
-      <button class="submit btn-success">
+    <div class="btn-submit text-center" v-if="listFood.length > 0">
+      <button class="submit btn-success" @click="updateOrder()">
         Complele
       </button>
     </div>
@@ -34,6 +39,12 @@ export default {
         this.listFood = res.data;
       });
     },
+    async updateOrder() {
+    await this.$store.dispatch("customer/updateOrderFood", this.id).then(() => {
+      alert("Thanh cong");
+      this.$router.push({ name: "ListFoodOrder" });
+    });
+  },
   },
 };
 </script>

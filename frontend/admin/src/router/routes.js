@@ -228,6 +228,16 @@ const routes = [
     component: page("LoginCustomer")
   },
   {
+    path: "/list-room-type",
+    name: "ListRoomType",
+    meta: {
+      layout: "CustomersLayout",
+      requiredAuth: true
+    },
+    props: true,
+    component: view("listRoomType")
+  },
+  {
     path: "/customer",
     name: "Customer",
     meta: {

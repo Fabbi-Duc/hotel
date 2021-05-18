@@ -111,10 +111,10 @@ export default {
       rooms: null,
       id: null,
       types: [
-        { value: 1, text: "Vip One" },
-        { value: 2, text: "Normal One" },
-        { value: 3, text: "Vip Two" },
-        { value: 4, text: "Normal Two" },
+        { value: 1, text: "Vip Single Room" },
+        { value: 2, text: "Normal Double Room" },
+        { value: 3, text: "Normal Single Room" },
+        { value: 4, text: "Vip Double Room" },
       ],
       fields: [
         { key: "numerical", label: "Numerical" },
@@ -179,7 +179,6 @@ export default {
       });
     },
     async deletRoom(id) {
-      console.log(id);
       const params = {
         id: id,
       };
