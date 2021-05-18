@@ -23,7 +23,7 @@ class RoomFactory extends Factory
     {
         return [
             'name' => random_int(303, 305),
-            'room_type_id' => random_int(1,2),
+            'room_type_id' => random_int(1,4),
             'status' => random_int(1,3),
             'image_url' => 'https://image.shutterstock.com/image-photo/poster-above-white-cabinet-plant-260nw-1173139144.jpg',
             'code_room' => 'nguyenduc05021998@gmail.com',

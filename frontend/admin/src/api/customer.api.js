@@ -68,3 +68,10 @@ export const listFoodOrder = (room_service_food_id) => {
     method: "get"
   });
 };
+
+export const updateOrderFood = (room_service_food_id) => {
+  return request({
+    url: "/update-order/" + room_service_food_id,
+    method: "get"
+  });
+};

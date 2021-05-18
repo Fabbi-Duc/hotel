@@ -161,7 +161,7 @@
       </b-row>
     </div>
     <!--FOOTER-->
-    <div class="footer" v-if="!this.id">
+    <!-- <div class="footer" v-if="!this.id">
       <div class="footer__wrap">
         <b-row>
           <b-col md="4" class="text-center">
@@ -217,7 +217,7 @@
           © 2021 QODE INTERACTIVE, ALL RIGHTS RESERVED
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>

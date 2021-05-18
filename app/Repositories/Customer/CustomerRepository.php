@@ -84,7 +84,8 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
             }
 
             $room = new RoomsCustomer;
-            if(!$this->model->where('email', $data['email'])->get()) {
+            $t = $this->model->where('email', $data['email'])->first();
+            if(!$t) {
                 $data['password'] = bcrypt($data['password']);
                 $customer = $this->model->create($data);
                 $room->customer_id = $customer->get()->last()->id;
