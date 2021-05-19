@@ -122,8 +122,21 @@
         </b-col>
       </b-row>
     </div>
+    <div class="detail-room" v-if="customer_room" style="padding: 30px">
+      <label for="" style="font-weight: bold; font-size: 20px"> List of customers who are renting rooms</label>
+      <b-table striped hover :items="customer_room" :fields="fields">
+        <template #cell(numerical)="row">
+          {{ ++row.index }}
+        </template>
+        <template #cell(name)="row">
+          <span>
+            {{ row.item.name }}
+          </span>
+        </template>
+      </b-table>
+    </div>
     <!--FOOTER-->
-    <div class="footer">
+    <!-- <div class="footer">
       <div class="footer__wrap">
         <b-row>
           <b-col md="4" class="text-center">
@@ -179,28 +192,35 @@
           © 2021 QODE INTERACTIVE, ALL RIGHTS RESERVED
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
-import VueGallerySlideshow from 'vue-gallery-slideshow';
+import VueGallerySlideshow from "vue-gallery-slideshow";
 import store from "@/store";
 export default {
   components: {
-    VueGallerySlideshow
+    VueGallerySlideshow,
   },
 
-  async mounted() {
-    await store.dispatch("auth/getAccountCustomer");
-    this.user = store.getters["auth/account"];
+  async created() {
+    await store.dispatch("auth/getAccountCustomer").then(res => {
+      this.user = res.data;
+    });
   },
   data() {
     return {
+      fields: [
+        { key: "numerical", label: "Numerical" },
+        { key: "name", label: "Name" },
+        { key: "start_time", label: "Start Time" },
+        { key: "end_time", label: "End Time" },
+      ],
       images: [
-      'https://placekitten.com/801/800',
-      'https://placekitten.com/802/800',
-      'https://placekitten.com/803/800',
-      'https://placekitten.com/804/800',
+        "https://placekitten.com/801/800",
+        "https://placekitten.com/802/800",
+        "https://placekitten.com/803/800",
+        "https://placekitten.com/804/800",
       ],
       index: null,
       name: null,
@@ -209,8 +229,16 @@ export default {
       email: null,
       passport: null,
       checkIn: null,
-      checkOut: null
+      checkOut: null,
+      customer_room: null,
+      user: null
     };
+  },
+
+  mounted() {
+    if (this.$route.query.room_status == 2) {
+      this.getInfoCustomerRoom(this.$route.query.room_id);
+    }
   },
   methods: {
     onSlideStart(slide) {
@@ -219,18 +247,18 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
+    async getInfoCustomerRoom(id) {
+      await this.$store.dispatch("room/getInfoRoomCustomer", id).then((res) => {
+        this.customer_room = res.data;
+      });
+    },
     async bookRoom() {
+      console.log(this.user);
       const params = {
-        name: this.user.name,
-        email: this.user.email,
-        id: 1,
-        birthday: this.user.birthday,
-        phone: this.user.phone,
-        identity_card: this.user.identity_card,
+        user_id: this.user.id,
+        id: this.$route.query.room_id,
         start_time: this.checkIn,
         end_time: this.checkOut,
-        gender: this.user.gender,
-        password: this.user.password,
       };
       if (this.checkOut <= this.checkIn) {
         alert("Ngay ket thuc phai lon hon ngay bat dau");
@@ -238,16 +266,15 @@ export default {
       }
 
       await this.$store
-          .dispatch("customer/bookRoom", params)
-          .then((respone) => {
-            if (!respone.success) {
-              alert(respone.message);
-              return;
-            } else {
-              alert("Ban da dat phong thanh cong");
-            }
-          })
-      console.log(params);
+        .dispatch("customer/bookRoomOnline", params)
+        .then((respone) => {
+          if (!respone.success) {
+            alert(respone.message);
+            return;
+          } else {
+            alert("Ban da dat phong thanh cong");
+          }
+        });
     },
   },
 };
@@ -325,7 +352,7 @@ export default {
 }
 .content {
   width: 1200px;
-  margin: 0 auto 200px;
+  margin: 0 auto 50px;
   .current-image {
     width: 100%;
     height: 700px;

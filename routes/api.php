@@ -67,3 +67,4 @@ Route::get('/food/list', [CustomerController::class, 'getFood'])->name('getFood'
 Route::get('/list-food-order/{room_id}', [CustomerController::class, 'getListFoodOrder'])->name('getListFoodOrder');
 Route::get('/list-order', [CustomerController::class, 'getListOrder'])->name('getListOrder');
 Route::get('/update-order/{room_serivce_food_id}', [CustomerController::class, 'updateListFood'])->name('updateListFood');
+Route::get('/book-room-online', [CustomerController::class, 'bookRoomOnline'])->name('bookRoomOnline');

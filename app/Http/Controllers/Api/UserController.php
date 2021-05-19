@@ -6,6 +6,7 @@ use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Mail\SendMail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends ApiController
 {
@@ -27,6 +28,7 @@ class UserController extends ApiController
     public function sendMail(Request $request)
     {
         $data = $request->all();
+        DB::table('rooms')->where('id', $data['id'])->update(['code_room' => $data['code']]);
         Mail::to($data['email'])->send(new SendMail($data['imgSrc']));
     } 
 
