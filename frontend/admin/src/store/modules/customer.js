@@ -1,4 +1,7 @@
-import { listCustomers, bookRoom, getInfoCustomer, updateBookRoom, registerCustomer, getFood, order, listOrder, listFoodOrder } from "@/api/customer.api";
+import { listCustomers, 
+          bookRoom, getInfoCustomer, updateBookRoom, 
+          registerCustomer, getFood, order, listOrder, 
+          listFoodOrder, updateOrder, bookRoomOnline } from "@/api/customer.api";
 
 export const state = {
   listCustomer: null,
@@ -44,6 +47,18 @@ export const actions = {
   bookRoom({ commit }, payload) {
     return new Promise((resolve, reject) => {
       bookRoom(payload)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  bookRoomOnline({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      bookRoomOnline(payload)
         .then(response => {
           resolve(response);
         })
@@ -116,6 +131,18 @@ export const actions = {
   listFoodOrder({ commit }, room_service_food_id) {
     return new Promise((resolve, reject) => {
       listFoodOrder(room_service_food_id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  updateOrder({ commit }, room_service_food_id) {
+    return new Promise((resolve, reject) => {
+      updateOrder(room_service_food_id)
         .then(response => {
           resolve(response);
         })

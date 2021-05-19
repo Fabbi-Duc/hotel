@@ -45,3 +45,10 @@ export const getInfoUser = id => {
     method: "get",
   });
 };
+
+export const pay = id => {
+  return request({
+    url: "/pay/" + id,
+    method: "get",
+  });
+};

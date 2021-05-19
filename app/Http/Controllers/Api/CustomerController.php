@@ -38,6 +38,15 @@ class CustomerController extends Controller
         return $result;
     }
 
+    public function bookRoomOnline(Request $request)
+    {
+        $data = $request->only('user_id');
+        $id = $request->only('id');
+        $time = $request->only('start_time', 'end_time');
+        $result = $this->customerRepository->bookRoomOnline($data, $id, $time);
+        return $result;
+    }
+
     public function getInfoRoomCustomer($id)
     {
         $result = $this->customerRepository->getInfoRoomCustomer($id);

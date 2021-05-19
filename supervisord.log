@@ -14443,3 +14443,49 @@
 2021-05-17 11:45:36,408 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2021-05-17 11:45:36,410 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2021-05-17 11:45:36,411 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-19 13:40:10,507 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-05-19 13:40:10,507 INFO Included extra file "/etc/supervisor.d/cron.conf" during parsing
+2021-05-19 13:40:10,507 INFO Included extra file "/etc/supervisor.d/horizon.conf" during parsing
+2021-05-19 13:40:10,507 INFO Included extra file "/etc/supervisor.d/php-fpm.conf" during parsing
+2021-05-19 13:40:10,509 INFO supervisord started with pid 1
+2021-05-19 13:40:11,511 INFO spawned: 'cron-job' with pid 11
+2021-05-19 13:40:11,512 INFO spawned: 'horizon' with pid 12
+2021-05-19 13:40:11,513 INFO spawned: 'php-fpm' with pid 13
+2021-05-19 13:40:12,679 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-19 13:40:12,680 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-19 13:40:12,680 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-19 15:27:05,504 WARN received SIGQUIT indicating exit request
+2021-05-19 15:27:05,505 INFO waiting for cron-job, horizon, php-fpm to die
+2021-05-19 15:27:05,514 INFO stopped: php-fpm (exit status 0)
+2021-05-19 15:27:08,522 INFO stopped: horizon (exit status 0)
+2021-05-19 15:27:08,523 INFO waiting for cron-job to die
+2021-05-19 15:27:08,524 INFO stopped: cron-job (terminated by SIGTERM)
+2021-05-19 15:27:08,524 INFO reaped unknown pid 1594 (exit status 0)
+2021-05-19 15:27:26,920 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-05-19 15:27:26,921 INFO Included extra file "/etc/supervisor.d/cron.conf" during parsing
+2021-05-19 15:27:26,922 INFO Included extra file "/etc/supervisor.d/horizon.conf" during parsing
+2021-05-19 15:27:26,923 INFO Included extra file "/etc/supervisor.d/php-fpm.conf" during parsing
+2021-05-19 15:27:26,926 INFO supervisord started with pid 1
+2021-05-19 15:27:27,928 INFO spawned: 'cron-job' with pid 11
+2021-05-19 15:27:27,930 INFO spawned: 'horizon' with pid 12
+2021-05-19 15:27:27,932 INFO spawned: 'php-fpm' with pid 13
+2021-05-19 15:27:29,069 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-19 15:27:29,069 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-19 15:27:29,069 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-19 15:32:30,527 WARN received SIGQUIT indicating exit request
+2021-05-19 15:32:30,528 INFO waiting for cron-job, horizon, php-fpm to die
+2021-05-19 15:32:30,536 INFO stopped: php-fpm (exit status 0)
+2021-05-19 15:32:33,544 INFO stopped: horizon (exit status 0)
+2021-05-19 15:32:33,544 INFO waiting for cron-job to die
+2021-05-19 15:32:33,545 INFO stopped: cron-job (terminated by SIGTERM)
+2021-05-19 15:32:57,333 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-05-19 15:32:57,334 INFO Included extra file "/etc/supervisor.d/cron.conf" during parsing
+2021-05-19 15:32:57,335 INFO Included extra file "/etc/supervisor.d/horizon.conf" during parsing
+2021-05-19 15:32:57,335 INFO Included extra file "/etc/supervisor.d/php-fpm.conf" during parsing
+2021-05-19 15:32:57,343 INFO supervisord started with pid 1
+2021-05-19 15:32:58,346 INFO spawned: 'cron-job' with pid 10
+2021-05-19 15:32:58,349 INFO spawned: 'horizon' with pid 11
+2021-05-19 15:32:58,352 INFO spawned: 'php-fpm' with pid 12
+2021-05-19 15:32:59,643 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-19 15:32:59,644 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-19 15:32:59,644 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

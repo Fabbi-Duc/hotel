@@ -101,8 +101,27 @@
                 </ValidationProvider>
               </div>
             </div>
-            <label for="" v-if="type == 1">Cost Room Normal</label>
+            <label for="" v-if="type == 1">Cost Vip Single Room</label>
             <div class="row" v-if="type == 1">
+              <div class="form-group col">
+                <input
+                  type="text"
+                  class="form-control"
+                  disabled
+                  placeholder="Cost_first_hour: 2000000 VND"
+                />
+              </div>
+              <div class="form-group col">
+                <input
+                  type="text"
+                  class="form-control"
+                  disabled
+                  placeholder="Cost_last_hour: 1500000 VND"
+                />
+              </div>
+            </div>
+            <label for="" v-if="type == 2">Cost Normal Double Room</label>
+            <div class="row" v-if="type == 2">
               <div class="form-group col">
                 <input
                   type="text"
@@ -120,14 +139,14 @@
                 />
               </div>
             </div>
-            <label for="" v-if="type == 2">Cost Room Vip</label>
-            <div class="row" v-if="type == 2">
+            <label for="" v-if="type == 3">Cost Normal Single Room</label>
+            <div class="row" v-if="type == 3">
               <div class="form-group col">
                 <input
                   type="text"
                   class="form-control"
                   disabled
-                  placeholder="Cost_first_hour: 1500000 VND"
+                  placeholder="Cost_first_hour: 700000 VND"
                 />
               </div>
               <div class="form-group col">
@@ -135,11 +154,32 @@
                   type="text"
                   class="form-control"
                   disabled
-                  placeholder="Cost_last_hour: 1000000 VND"
+                  placeholder="Cost_last_hour: 500000 VND"
+                />
+              </div>
+            </div>
+
+            <label for="" v-if="type == 4">Cost Vip Double Room</label>
+            <div class="row" v-if="type == 4">
+              <div class="form-group col">
+                <input
+                  type="text"
+                  class="form-control"
+                  disabled
+                  placeholder="Cost_first_hour: 2500000 VND"
+                />
+              </div>
+              <div class="form-group col">
+                <input
+                  type="text"
+                  class="form-control"
+                  disabled
+                  placeholder="Cost_last_hour: 2000000 VND"
                 />
               </div>
             </div>
           </div>
+          
         </div>
         <div class="form-group mt-3">
           <label for="">Decription</label>
@@ -193,10 +233,10 @@ export default {
       floor: "",
       code_room: "",
       types: [
-        { value: 1, text: "Vip One" },
-        { value: 2, text: "Normal One" },
-        { value: 3, text: "Vip Two" },
-        { value: 4, text: "Normal Two" },
+        { value: 1, text: "Vip Single Room" },
+        { value: 2, text: "Normal Double Room" },
+        { value: 3, text: "Normal Single Room" },
+        { value: 4, text: "Vip Double Room" }
       ],
       floorOptions: [
         { value: 1, text: "1" },

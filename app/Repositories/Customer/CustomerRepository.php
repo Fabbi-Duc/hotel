@@ -84,21 +84,77 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
             }
 
             $room = new RoomsCustomer;
-            if(!$this->model->where('email', $data['email'])->get()) {
+            $bill = new Bills;
+            $t = $this->model->where('email', $data['email'])->first();
+            if (!$t) {
                 $data['password'] = bcrypt($data['password']);
                 $customer = $this->model->create($data);
                 $room->customer_id = $customer->get()->last()->id;
-                $room->status = 2;
             } else {
                 $room->customer_id = $this->model->where('email', $data['email'])->first()->id;
-                $room->status = 1;
             }
+            $room->status = 2;
             $room->room_id = $id['id'];
             $room->start_time = $time['start_time'];
             $room->end_time = $time['end_time'];
             $room->save();
 
+            $bill->room_id = $id['id'];
+            $bill->start_time = $time['start_time'];
+            $bill->end_time = $time['end_time'];
+            $bill->status = 2;
+            $bill->save();
+
+            DB::table('rooms')->where('id', $id['id'])->update(['status' => 3]);
+
+
+            return [
+                'success' => true,
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function bookRoomOnline($data, $id, $time)
+    {
+        try {
+            $start_time = $time['start_time'];
+            $end_time = $time['end_time'];
+            $dataRoom = DB::table('rooms_customers')->where('room_id', $id['id'])->get();
+            foreach ($dataRoom as $room) {
+                if ($room->start_time <= $start_time && $room->end_time >= $start_time) {
+
+                    return [
+                        'success' => false,
+                        'message' => 'Start Time not suitable'
+                    ];
+                } else if ($room->start_time <= $end_time && $room->end_time >= $end_time) {
+
+                    return [
+                        'success' => false,
+                        'message' => 'End Time not suitable'
+                    ];
+                } else if ($room->start_time >= $start_time && $room->end_time <= $end_time) {
+                    return [
+                        'success' => false,
+                        'message' => 'Start Time and End Time not suitable'
+                    ];
+                }
+            }
+
+            $room = new RoomsCustomer;
             $bill = new Bills;
+            $room->customer_id = $data['user_id'];
+            $room->status = 1;
+            $room->room_id = $id['id'];
+            $room->start_time = $time['start_time'];
+            $room->end_time = $time['end_time'];
+            $room->save();
+
             $bill->room_id = $id['id'];
             $bill->start_time = $time['start_time'];
             $bill->end_time = $time['end_time'];
@@ -166,6 +222,7 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
             $customer = DB::table('rooms_customers')->find($room_customer_id);
             DB::table('rooms')->where('id', $customer->room_id)->update(['status' => 3]);
             DB::table('rooms_customers')->where('id', $room_customer_id)->update(['status' => 2]);
+            DB::table('bills')->where('id', $customer->room_id)->update(['status' => 2]);
             return [
                 'success' => true,
             ];
@@ -186,15 +243,29 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
             $first_date = strtotime($room->start_time);
             $second_date = strtotime($room->end_time);
             $datediff = abs($second_date - $first_date);
-            if($datediff <= 1) {
+            if ($datediff <= 1) {
                 $data = $cost->cost_first_hour;
             } else {
-                $data = $cost->cost_first_hour + (($datediff - 1)/(3600))*$cost->cost_next_hour;
+                $data = $cost->cost_first_hour + (($datediff - 1) / (3600)) * $cost->cost_next_hour;
             };
-
+            $food = DB::table('room_service_food')->where('room_id', $room_id)->where('status', 1)->first();
+            $money = 0;
+            if ($food) {
+                $food_list = DB::table('room_foods')->where('room_service_food_id', $food->id)->get();
+                foreach ($food_list as $list) {
+                    $money += DB::table('foods')->find($list->food_id)->cost * $list->count;
+                }
+                $room_service_id = DB::table('room_service_food')->where('room_id', $room_id)->where('status', 1)->first();
+                DB::table('room_service_food')->where('room_id', $room_id)->where('status', 1)->update(['status' => 3, 'cost' => $data + $money]);
+                DB::table('room_foods')->where('room_service_food_id', $room_service_id->id)->update(['status' => 3]);
+            }
+            DB::table('rooms_customers')->where('room_id', $room_id)->where('status', 2)->update(['status' => 3]);
+            DB::table('rooms')->where('id', $room_id)->update(['status' => 1]);
+            DB::table('bills')->where('room_id', $room_id)->where('status', 2)->update(['status' => 3]);
             return [
                 'success' => true,
                 'data' => $data,
+                'money' => $money
             ];
         } catch (\Exception $e) {
             return [
@@ -211,9 +282,8 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
         $room = DB::table('rooms_customers')->where('room_id', $id)->where('status', 2)->first();
         $room_food = DB::table('room_service_food')->where('room_id', $id)->where('status', 1)->first();
         // dd($room_food);
-        if($room_food) {   
-            foreach($data['food'] as $food_id)
-            {   
+        if ($room_food) {
+            foreach ($data['food'] as $food_id) {
                 $object = json_decode($food_id);
                 $food_room = new RoomFoods;
                 $food_room->food_id = $object->id;
@@ -234,7 +304,7 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
 
 
             $service = DB::table('room_service_food')->where('room_id', $service_food->room_id)->get()->last()->id;
-            foreach($data['food'] as $food_id) {
+            foreach ($data['food'] as $food_id) {
                 $food_room = new RoomFoods;
                 $object = json_decode($food_id);
                 $food_room->food_id = $object->id;
@@ -250,7 +320,7 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
         ];
     }
 
-    public function getFood($data) 
+    public function getFood($data)
     {
         try {
             $food = DB::table('foods');
@@ -271,7 +341,10 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
     {
         try {
             $food = DB::table('room_foods');
-            $room_service_food = $food->leftJoin('foods', 'room_foods.food_id', '=', 'foods.id')->where("room_foods.room_service_food_id", $room_service_id)->get();
+            $room_service_food = $food
+                ->leftJoin('foods', 'room_foods.food_id', '=', 'foods.id')
+                ->where("room_foods.room_service_food_id", $room_service_id)
+                ->where("room_foods.status", 1)->get();
 
             return [
                 'success' => true,
@@ -289,7 +362,7 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
     {
         try {
             $list = DB::table('rooms')->leftJoin('room_service_food', 'room_service_food.room_id', '=', 'rooms.id')->where('room_service_food.status', 2)->paginate(5);
-            
+
             return [
                 'success' => true,
                 'data' => $list
@@ -304,7 +377,7 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
 
     public function updateListFood($room_service_food_id)
     {
-        try{
+        try {
             $list_food = DB::table("room_foods")->where('room_service_food_id', $room_service_food_id);
             $list_food->update(['status' => 2]);
             $list = DB::table('room_service_food')->where('id', $room_service_food_id);
@@ -312,7 +385,6 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
             return [
                 'success' => true
             ];
-
         } catch (\Exception $e) {
             return [
                 'success' => false,

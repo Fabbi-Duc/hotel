@@ -24,6 +24,14 @@ export const bookRoom = params => {
   });
 };
 
+export const bookRoomOnline = params => {
+  return request({
+    url: "/book-room-online",
+    method: "get",
+    params
+  });
+};
+
 export const getInfoCustomer = id => {
   return request({
     url: "/customer/" + id,
@@ -66,5 +74,12 @@ export const listFoodOrder = (room_service_food_id) => {
   return request({
     url: "/list-food-order/" + room_service_food_id,
     method: "get"
+  });
+};
+
+export const updateOrder = room_service_food_id => {
+  return request({
+    url: "/update-order/" + room_service_food_id,
+    method: "get",
   });
 };

@@ -1,4 +1,4 @@
-import { listUsers, bookRoom, deleteUser, createUser, updateUser, getInfoUser } from "@/api/user.api";
+import { listUsers, bookRoom, deleteUser, createUser, updateUser, getInfoUser, pay } from "@/api/user.api";
 
 export const state = {
   listUsers: null,
@@ -60,6 +60,18 @@ export const actions = {
   deleteUser ({ commit }, id) {
     return new Promise((resolve, reject) => {
       deleteUser(id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  pay ({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      pay(id)
         .then(response => {
           resolve(response);
         })

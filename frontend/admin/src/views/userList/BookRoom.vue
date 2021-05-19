@@ -203,10 +203,16 @@ export default {
               alert(respone.message);
               return;
             }
+            alert("Dat phong thanh cong");
+            this.$router.push({ name: "Room" });
             this.getQrCode();
           });
       } else {
-        await this.$store.dispatch("customer/updateBookRoom", this.user_id);
+        await this.$store
+          .dispatch("customer/updateBookRoom", this.user_id)
+          .then(() => {
+            this.$router.push({ name: "Room" });
+          });
       }
     },
 
@@ -236,6 +242,8 @@ export default {
       const params = {
         imgSrc: imgSrc,
         email: this.email,
+        id: this.id,
+        code: this.email + this.start_time + this.id,
       };
       await this.$store.dispatch("user/bookRoom", params);
     },

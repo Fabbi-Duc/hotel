@@ -42,10 +42,10 @@
             class="price-room position-absolute w-100 h-100 text-center"
             style="background-color: black; left: 0; bottom: 0"
           >
-            <p style="color: white; font-size: 50px">
+            <p style="color: white; font-size: 40px">
               {{ room.name }}
             </p>
-            <p style="color: white; font-size: 50px">
+            <p style="color: white; font-size: 40px">
               {{ room_type[room.room_type_id].text }}
             </p>
             <p style="color: white; font-size: 15px">
@@ -62,7 +62,9 @@
           <button
             v-if="room.status == 2"
             class="btn-info mr-3"
-            @click="$router.push({ name: 'RoomDetailBook', params: { id: room.id } })"
+            @click="
+              $router.push({ name: 'RoomDetailBook', params: { id: room.id } })
+            "
           >
             Detail
           </button>
@@ -80,7 +82,11 @@
           >
             Book Room
           </button>
-          <button class="btn-danger" v-else>Pay</button>
+          <button class="btn-danger" v-else @click="pay(room.id)">Pay</button>
+          <b-modal ref="my-modal" title="BootstrapVue" centered>
+            <p class="my-4">COST ROOM : {{cost_room}}</p>
+            <p class="my-4">COST FOOD : {{cost_food}}</p>
+          </b-modal>
         </div>
       </div>
     </div>
@@ -94,29 +100,31 @@ export default {
       rooms: null,
       floor: 1,
       type: "",
+      cost_room: null,
+      cost_food: null,
       floorOptions: [
         { value: 1, text: "1" },
         { value: 2, text: "2" },
       ],
       room_type: [
         { value: "", text: "" },
-        { value: 1, text: "Vip One" },
-        { value: 2, text: "Normal One" },
-        { value: 3, text: "Vip Two" },
-        { value: 4, text: "Normal Two" },
+        { value: 1, text: "Vip Single Room" },
+        { value: 2, text: "Normal Double Room" },
+        { value: 3, text: "Normal Single Room" },
+        { value: 4, text: "Vip Double Room" },
       ],
 
       cost_first_hour: [
-        { value: 1500000 },
-        { value: 1000000 },
         { value: 2000000 },
+        { value: 1000000 },
+        { value: 700000 },
         { value: 2500000 },
       ],
 
       cost_next_hour: [
-        { value: 1000000 },
-        { value: 700000 },
         { value: 1500000 },
+        { value: 700000 },
+        { value: 500000 },
         { value: 2000000 },
       ],
     };
@@ -144,6 +152,14 @@ export default {
 
     bookRoom(id) {
       this.$router.push({ name: "BookRoom", params: { id: id } });
+    },
+    async pay(id) {
+      console.log(id);
+      await this.$store.dispatch("user/pay", id).then((res) => {
+        (this.cost_room = res.data), (this.cost_food = res.money);
+        alert("Ban da thanh toan thanh cong");
+      });
+      window.location.reload()
     },
   },
 };
