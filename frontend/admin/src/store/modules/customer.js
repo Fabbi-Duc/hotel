@@ -1,7 +1,8 @@
 import { listCustomers, 
           bookRoom, getInfoCustomer, updateBookRoom, 
           registerCustomer, getFood, order, listOrder, 
-          listFoodOrder, updateOrder, bookRoomOnline } from "@/api/customer.api";
+          listFoodOrder, updateOrder, bookRoomOnline, 
+          listClean, updateClean, listPark, updatePark } from "@/api/customer.api";
 
 export const state = {
   listCustomer: null,
@@ -150,5 +151,53 @@ export const actions = {
           reject(error);
         });
     });
-  }
+  },
+
+  listClean({ commit }) {
+    return new Promise((resolve, reject) => {
+      listClean()
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  updateClean({ commit }, room_id) {
+    return new Promise((resolve, reject) => {
+      updateClean(room_id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  listPark({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      listPark(data)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  updatePark({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      updatePark(data)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
 }

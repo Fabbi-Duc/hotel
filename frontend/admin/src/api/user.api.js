@@ -52,3 +52,50 @@ export const pay = id => {
     method: "get",
   });
 };
+
+export const listFood = params => {
+  return request({
+    url: "/food-list",
+    method: "get",
+    params
+  });
+};
+
+export const getInfoFood = id => {
+  return request({
+    url: "/food/" + id,
+    method: "get",
+  });
+};
+
+export const createFood = params => {
+  return request({
+    url: "/food/create",
+    method: "post",
+    params
+  });
+};
+
+export const updateFood = params => {
+  return request({
+    url: "/food/update",
+    method: "post",
+    params
+  });
+};
+
+export const deleteFood = id => {
+  return request({
+    url: "/food/delete/" + id,
+    method: "delete",
+  });
+};
+
+export const createPark = params => {
+  return request({
+    url: "/create-park",
+    method: "post",
+    params
+  });
+};
+

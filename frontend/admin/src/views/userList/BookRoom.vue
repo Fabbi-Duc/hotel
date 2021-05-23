@@ -39,6 +39,10 @@
                 </div>
               </ValidationProvider>
             </div>
+            <div class="park mb-3">
+              <label for="">Park ID</label>
+              <input type="text" class="form-control" v-model="park_id">
+            </div>
             <div class="option">
               <label for="">Birthday</label>
               <ValidationProvider
@@ -164,6 +168,7 @@ export default {
       identity_card: null,
       start_time: null,
       end_time: null,
+      park_id: null,
       gender: 1,
       genderOption: [
         { value: 0, text: "Male" },
@@ -205,6 +210,7 @@ export default {
             }
             alert("Dat phong thanh cong");
             this.$router.push({ name: "Room" });
+            this.updatePark();
             this.getQrCode();
           });
       } else {
@@ -212,6 +218,7 @@ export default {
           .dispatch("customer/updateBookRoom", this.user_id)
           .then(() => {
             this.$router.push({ name: "Room" });
+            this.updatePark();
           });
       }
     },
@@ -231,6 +238,16 @@ export default {
           );
           this.end_time = moment(res.data.end_time).format("YYYY-MM-DDThh:mm");
         });
+    },
+
+    async updatePark() {
+      const payload = {
+        room_id: this.id,
+        park_id: this.park_id,
+        start_time: this.start_time,
+        end_time: this.end_time
+      }
+      await this.$store.dispatch('customer/updatePark', payload)
     },
     async getQrCode() {
       let imgSrc =

@@ -15,24 +15,15 @@
       <div class="notification-ui_dd-content">
         <div v-for="(notification, index) in notifications" :key="index">
           <div class="notification-list notification-list--unread">
-            <div class="notification-list_img">
-              <img :src="notification.image" alt="user" />
-            </div>
             <div class="notification-list_detail">
-              <p>{{ notification.title }}</p>
-              <p>
-                <small>{{ notification.date }}</small>
-              </p>
-            </div>
-            <div class="notification-list_feature-img">
-              <img src="https://i.imgur.com/AbZqFnR.jpg" alt="Feature image" />
+              <p :class="notification.status == 1 ? 'read' : ''">{{ notification.body }}</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="notification-ui_dd-footer">
+      <!-- <div class="notification-ui_dd-footer">
         <a href="#!" class="btn btn-success btn-block">View All</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -109,6 +100,9 @@ export default {
         margin-bottom: 5px;
         line-height: 1.2;
       }
+      .read {
+        color: blue;
+      }
     }
     .notification-list_feature-img {
       img {
@@ -134,7 +128,7 @@ export default {
     .notification-ui_dd {
       min-width: 400px;
       position: absolute;
-      left: -192px;
+      left: -240px;
       top: 70px;
     }
   }

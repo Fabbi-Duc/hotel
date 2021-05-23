@@ -23,3 +23,17 @@ export const sendNotificationFirebase = data => {
     data
   });
 };
+
+export const getNotification = id => {
+  return request({
+    url: "/notifications/" + id,
+    method: "get",
+  });
+};
+
+export const updateNotification = id => {
+  return request({
+    url: "/update-notifications/" + id,
+    method: "get",
+  });
+};

@@ -15,19 +15,13 @@
     </CHeaderBrand>
     <CHeaderNav class="d-md-down-none mr-auto">
       <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/dashboard">
-          Dashboard
-        </CHeaderNavLink>
+        <CHeaderNavLink to="/dashboard"> Dashboard </CHeaderNavLink>
       </CHeaderNavItem>
       <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/users" exact>
-          Users
-        </CHeaderNavLink>
+        <CHeaderNavLink to="/users" exact> Users </CHeaderNavLink>
       </CHeaderNavItem>
       <CHeaderNavItem class="px-3">
-        <CHeaderNavLink>
-          Settings
-        </CHeaderNavLink>
+        <CHeaderNavLink> Settings </CHeaderNavLink>
       </CHeaderNavItem>
     </CHeaderNav>
     <CHeaderNav class="mr-4">
@@ -37,8 +31,14 @@
         </div>
       </CHeaderNavItem>
       <CHeaderNavItem class="d-md-down-none mx-2">
-        <div class="notification-icon" @click.prevent="showBoxNotification">
-          <CIcon name="cil-bell" /> {{ numberNotice }}
+        <div class="notification-icon position-relative" @click.prevent="showBoxNotification">
+          <CIcon name="cil-bell" />
+          <div
+            class="position-absolute d-flex justify-content-center align-items-center notification-number"
+            v-if="numberNotice > 0"
+          >
+            {{ numberNotice }}
+          </div>
         </div>
         <transition name="fade">
           <BoxNotification
@@ -78,39 +78,25 @@ export default {
   components: {
     BoxLanguage,
     BoxNotification,
-    TheHeaderDropdownAccnt
+    TheHeaderDropdownAccnt,
   },
   data() {
     return {
       boxNotificationStatus: false,
-      notifications: [
-        {
-          image:
-            "https://zicxaphotos.com/wp-content/uploads/2020/07/girl-xinh-cap-3-1.jpg",
-          title: "Tao thich thong bao",
-          date: "01-12-2020"
-        },
-        {
-          image:
-            "https://zicxaphotos.com/wp-content/uploads/2020/07/girl-xinh-cap-3-1.jpg",
-          title: "Tao thich thong bao",
-          date: "01-12-2020"
-        },
-        {
-          image:
-            "https://zicxaphotos.com/wp-content/uploads/2020/07/girl-xinh-cap-3-1.jpg",
-          title: "Tao thich thong bao",
-          date: "01-12-2020"
-        }
-      ],
+      notifications: [],
       numberNotice: null,
-      deviceToken: null
+      deviceToken: null,
+      user: null
     };
-  },
+  },  
   methods: {
     ...mapActions("auth", ["logout"]),
-    showBoxNotification() {
+    async showBoxNotification() {
       this.boxNotificationStatus = !this.boxNotificationStatus;
+      if(!this.boxNotificationStatus) {
+        await this.$store.dispatch('notification/updateNotification', this.user.position);
+      }
+      await this.getNotification();
     },
     async handleLogout() {
       await this.logout();
@@ -118,29 +104,47 @@ export default {
     },
     receiveMessage() {
       try {
-        navigator.serviceWorker.addEventListener("message", event => {
-          console.log(event);
+        navigator.serviceWorker.addEventListener("message", (event) => {
           this.numberNotice = event.data.firebaseMessaging.payload.data.count;
         });
       } catch (e) {
         console.log(e);
       }
+    },
+    async getNotification() {
+      await this.$store.dispatch('notification/getNotification', this.user.position).then(res => {
+        this.numberNotice = res.number;
+        this.notifications = res.data;
+      })
+    },
+    async getUser() {
+      await this.$store.dispatch('auth/getAccount').then(res => {
+        this.user = res.data;
+        console.log(this.user);
+      })
     }
   },
-  created() {
-    this.receiveMessage();
-  }
+  async created() {
+    await this.getUser();
+    await this.getNotification();
+    await this.receiveMessage();
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .notification-icon {
   position: relative;
   cursor: pointer;
 }
-.notification {
+.notification-number {
   position: absolute;
-  top: -20px;
-  right: 58px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: red;
+  top: -5px;
+  right: -4px;
+  color: white;
 }
 </style>

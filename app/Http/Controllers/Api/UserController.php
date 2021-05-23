@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Mail\SendMail;
+// use App\Mail\SendMailPark;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 
@@ -30,10 +31,10 @@ class UserController extends ApiController
         $data = $request->all();
         DB::table('rooms')->where('id', $data['id'])->update(['code_room' => $data['code']]);
         Mail::to($data['email'])->send(new SendMail($data['imgSrc']));
-    } 
+    }
 
     public function getInfoUser($id)
-    {   
+    {
         $result = $this->userRepository->getInfoUser($id);
         return $result;
     }
@@ -58,6 +59,50 @@ class UserController extends ApiController
         $id = $request->only('id');
         $result = $this->userRepository->updateUser($data, $id);
 
+        return $result;
+    }
+
+    public function createFood(Request $request)
+    {
+        $data = $request->all();
+        $result = $this->userRepository->createFood($data);
+
+        return $result;
+    }
+
+    public function updateFood(Request $request)
+    {
+        $data = $request->all();
+        $result = $this->userRepository->updateFood($data);
+
+        return $result;
+    }
+
+    public function listFood(Request $request)
+    {
+        $data = $request->all();
+        $result = $this->userRepository->listFood($data);
+
+        return $result;
+    }
+
+    public function getInfoFood($id)
+    {
+        $result = $this->userRepository->getInfoFood($id);
+
+        return $result;
+    }
+
+    public function deleteFood($id)
+    {
+        $result = $this->userRepository->deleteFood($id);
+
+        return $result;
+    }
+
+    public function createPark(Request $request)
+    {
+        $result = $this->userRepository->createPark($request->all());
         return $result;
     }
 }

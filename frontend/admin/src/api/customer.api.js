@@ -48,7 +48,7 @@ export const updateBookRoom = id => {
 
 export const getFood = params => {
   return request({
-    url: "/food/list",
+    url: "/list/food",
     method: "get",
     params
   });
@@ -81,5 +81,35 @@ export const updateOrder = room_service_food_id => {
   return request({
     url: "/update-order/" + room_service_food_id,
     method: "get",
+  });
+};
+
+export const listClean = () => {
+  return request({
+    url: "/list-clean",
+    method: "get",
+  });
+};
+
+export const updateClean = room_id => {
+  return request({
+    url: "/update-clean/" + room_id,
+    method: "get",
+  });
+};
+
+export const listPark = data => {
+  return request({
+    url: "/list-park",
+    method: "post",
+    data
+  });
+};
+
+export const updatePark = data => {
+  return request({
+    url: "/update-park",
+    method: "post",
+    data
   });
 };

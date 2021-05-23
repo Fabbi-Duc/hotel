@@ -24,7 +24,7 @@ class FoodsFactory extends Factory
         return [
             'name' => 'Pho Bo',
             'cost' => '10000',
-            'type' => random_int(1,3),
+            'type' => random_int(1,2),
             'image_url' => 'https://image.shutterstock.com/image-photo/poster-above-white-cabinet-plant-260nw-1173139144.jpg',
         ];
     }

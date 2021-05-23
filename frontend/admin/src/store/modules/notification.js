@@ -1,4 +1,4 @@
-import { saveToken, sendNotification } from "@/api/notification.api";
+import { saveToken, sendNotification, getNotification, updateNotification } from "@/api/notification.api";
 
 export const state = {};
 
@@ -24,6 +24,30 @@ export const actions = {
   sendNotificationSystem({ commit }, payload) {
     return new Promise((resolve, reject) => {
       sendNotification(payload)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  getNotification({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      getNotification(id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  updateNotification({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      updateNotification(id)
         .then(response => {
           resolve(response);
         })
