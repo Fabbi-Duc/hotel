@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Mail\SendMailPark;
+use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller
 {
@@ -101,4 +103,30 @@ class CustomerController extends Controller
         return $result;
     }
 
+    public function listClean()
+    {
+        $result = $this->customerRepository->listClean();
+        return $result;
+    }
+
+    public function updateClean($room_id)
+    {
+        $result = $this->customerRepository->updateClean($room_id);
+        return $result;
+    }
+
+    public function listPark(Request $request)
+    {   
+        $data = $request->all();
+        $result = $this->customerRepository->listPark($data);
+        return $result;
+    }
+
+    public function updatePark(Request $request)
+    {   
+        $data = $request->all();
+        $result = $this->customerRepository->updatePark($data);
+        Mail::to($data['email'])->send(new SendMailPark($data['park_id']));
+        return $result;
+    }
 }

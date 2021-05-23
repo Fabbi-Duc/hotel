@@ -91,7 +91,6 @@
         v-model="paginate.page"
         :total-rows="paginate.total"
         :per-page="paginate.perPage"
-        aria-controls="my-table"
         @change="changePage"
       >
       </b-pagination>

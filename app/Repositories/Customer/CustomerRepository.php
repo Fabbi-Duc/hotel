@@ -7,6 +7,7 @@ use App\Models\RoomsCustomer;
 use App\Models\Bills;
 use App\Models\RoomFoods;
 use App\Models\RoomServiceFood;
+use App\Models\RoomServicePark;
 use App\Repositories\RepositoryAbstract;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -281,7 +282,6 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
         $id = $data['id'];
         $room = DB::table('rooms_customers')->where('room_id', $id)->where('status', 2)->first();
         $room_food = DB::table('room_service_food')->where('room_id', $id)->where('status', 1)->first();
-        // dd($room_food);
         if ($room_food) {
             foreach ($data['food'] as $food_id) {
                 $object = json_decode($food_id);
@@ -293,6 +293,7 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
 
                 $food_room->save();
             }
+            DB::table('room_service_food')->where('room_id', $id)->where('status', 1)->update(['status' => 2]);
         } else {
             $service_food = new RoomServiceFood;
             $service_food->room_id = $room->room_id;
@@ -324,7 +325,6 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
     {
         try {
             $food = DB::table('foods');
-
             return [
                 'success' => true,
                 'data' => $food->paginate($data['per_page'])
@@ -361,7 +361,9 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
     public function getListOrder($data)
     {
         try {
-            $list = DB::table('rooms')->leftJoin('room_service_food', 'room_service_food.room_id', '=', 'rooms.id')->where('room_service_food.status', 2)->paginate(5);
+            $list = DB::table('rooms')
+                        ->leftJoin('room_service_food', 'room_service_food.room_id', '=', 'rooms.id')
+                        ->where('room_service_food.status', 2)->paginate(5);
 
             return [
                 'success' => true,
@@ -382,6 +384,88 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
             $list_food->update(['status' => 2]);
             $list = DB::table('room_service_food')->where('id', $room_service_food_id);
             $list->update(['status' => 1]);
+            return [
+                'success' => true
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function listClean()
+    {
+        try {
+            $list_clean = DB::table("room_service_cleans")
+                ->leftJoin("rooms", "room_service_cleans.room_id", "=", "rooms.id")
+                ->where('room_service_cleans.status', 2)->get();
+
+            return [
+                'success' => true,
+                'data' => $list_clean
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function updateClean($room_id)
+    {
+        try {
+            $list = DB::table("room_service_cleans")
+                ->where("room_id", $room_id)
+                ->where("status", 2)
+                ->update(['status' => 3]);
+
+            return [
+                'success' => true
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function listPark($data)
+    {
+        try {
+            $listPark = DB::table("parks");;
+            if (!empty($data['floor'])) {
+                $listPark = $listPark->where('floor', $data['floor']);
+            }
+            if (!empty($data['type'])) {
+                $listPark = $listPark->where('type', $data['type']);
+            }
+            return [
+                'success' => true,
+                'data' => $listPark->get()
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+    public function updatePark($data)
+    {
+        try {
+            $park_room = new RoomServicePark;
+            $park_room->room_id = $data['room_id'];
+            $park_room->park_id = $data['park_id'];
+            $park_room->start_time = $data['start_time'];
+            $park_room->end_time = $data['end_time'];
+            $park_room->save();
+
+            $park = DB::table('parks')->where('id', $data['park_id'])->update(['status' => 2]);
+
             return [
                 'success' => true
             ];

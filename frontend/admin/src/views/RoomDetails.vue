@@ -123,7 +123,9 @@
       </b-row>
     </div>
     <div class="detail-room" v-if="customer_room" style="padding: 30px">
-      <label for="" style="font-weight: bold; font-size: 20px"> List of customers who are renting rooms</label>
+      <label for="" style="font-weight: bold; font-size: 20px">
+        List of customers who are renting rooms</label
+      >
       <b-table striped hover :items="customer_room" :fields="fields">
         <template #cell(numerical)="row">
           {{ ++row.index }}
@@ -135,81 +137,73 @@
         </template>
       </b-table>
     </div>
-    <!--FOOTER-->
-    <!-- <div class="footer">
-      <div class="footer__wrap">
-        <b-row>
-          <b-col md="4" class="text-center">
-            <h5 class="footer__wrap__contact">CONTACT</h5>
-            <p class="footer__wrap__address">
-              9 Crosby Street, New York City, NY
-            </p>
-            <p class="footer__wrap__mail">fivestar@qodeinteractive.com</p>
-            <p class="footer__wrap__phone">( 646 ) 218-6400</p>
-            <div
-              class="footer__wrap__bank d-flex justify-content-center align-item-center"
-            >
-              <img
-                src="https://fivestar.qodeinteractive.com/wp-content/uploads/2017/05/fotter-card-img-haver-1.png"
-                alt=""
-              />
-              <img
-                src="https://fivestar.qodeinteractive.com/wp-content/uploads/2017/05/fotter-card-img-haver-2.png"
-                alt=""
-              />
-              <img
-                src="https://fivestar.qodeinteractive.com/wp-content/uploads/2017/05/fotter-card-img-haver-3.png"
-                alt=""
-              />
-              <img
-                src="https://fivestar.qodeinteractive.com/wp-content/uploads/2017/05/fotter-card-img-haver-4.png"
-                alt=""
-              />
-              <img
-                src="https://fivestar.qodeinteractive.com/wp-content/uploads/2017/05/fotter-card-img-haver-5.png"
-                alt=""
-              />
-            </div>
-          </b-col>
-          <b-col md="4" class="text-center">
-            <h5 class="footer__wrap__name">VINTAGE</h5>
-            <p class="footer__wrap__description">
-              Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-              consectetura iolor sit amet.
-            </p>
-          </b-col>
-          <b-col md="4" class="text-center">
-            <h5 class="footer__wrap__share">NEWSLETTER</h5>
-            <div class="footer__wrap__send-mail">
-              <input type="text" placeholder="E-Mail" />
-              <span class="go">GO</span>
-            </div>
-          </b-col>
-        </b-row>
-        <div class="footer__copyright text-center mt-5">
-          © 2021 QODE INTERACTIVE, ALL RIGHTS RESERVED
+    <b-modal ref="my-modal" title="LIST PRAKS" centered hide-footer>
+      <b-form class="form-control row">
+        <b-form-select
+          class="type__select col-3 mr-3"
+          v-model="type"
+          :options="types"
+          @change="chooseType"
+        />
+        <b-form-select
+          class="type__select col-3"
+          v-model="floor"
+          :options="floors"
+          @change="chooseFloor"
+        />
+      </b-form>
+      <div class="d-flex justify-content-start flex-wrap">
+        <div
+          class="d-flex flex-column"
+          v-for="(park, index) in listPark"
+          :key="index"
+        >
+          <div
+            class="park d-flex justify-content-center align-items-center mr-3"
+          >
+            <p>Type: {{ types[park.type].text }}</p>
+          </div>
+          <div
+            class="d-flex justify-content-center mt-3 mr-3"
+            v-if="park.status == 1"
+          >
+            <button class="btn-info m-auto" @click="book(park.id)">Book</button>
+          </div>
         </div>
       </div>
-    </div> -->
+    </b-modal>
   </div>
 </template>
 <script>
 import VueGallerySlideshow from "vue-gallery-slideshow";
 import store from "@/store";
+import { sendNotificationFirebase } from "@/api/notification.api";
+import firebase from "@/plugins/firebase";
 export default {
   components: {
     VueGallerySlideshow,
   },
 
   async created() {
-    await store.dispatch("auth/getAccountCustomer").then(res => {
+    await store.dispatch("auth/getAccountCustomer").then((res) => {
       this.user = res.data;
     });
+    await this.getListPark();
   },
   data() {
     return {
+      types: [
+        { value: "", text: "" },
+        { value: 1, text: "Car" },
+        { value: 2, text: "Moto" },
+      ],
+      floors: [
+        { value: "", text: "" },
+        { value: 1, text: "F1" },
+        { value: 2, text: "F2" },
+      ],
+      type: "",
+      floor: "",
       fields: [
         { key: "numerical", label: "Numerical" },
         { key: "name", label: "Name" },
@@ -231,7 +225,8 @@ export default {
       checkIn: null,
       checkOut: null,
       customer_room: null,
-      user: null
+      user: null,
+      listPark: null,
     };
   },
 
@@ -252,8 +247,35 @@ export default {
         this.customer_room = res.data;
       });
     },
+    async book(park_id) {
+      const payload = {
+        room_id: this.$route.query.room_id,
+        park_id: park_id,
+        start_time: this.checkIn,
+        end_time: this.checkOut,
+        email: this.user.email,
+      };
+      await this.$store.dispatch("customer/updatePark", payload).then(() => {
+        alert("Ban da dat thanh cong");
+        this.$refs["my-modal"].hide();
+      });
+    },
+    async getListPark() {
+      const data = {
+        type: this.type,
+        floor: this.floor,
+      };
+      await this.$store.dispatch("customer/listPark", data).then((res) => {
+        this.listPark = res.data;
+      });
+    },
+    async chooseType() {
+      await this.getListPark();
+    },
+    async chooseFloor() {
+      await this.getListPark();
+    },
     async bookRoom() {
-      console.log(this.user);
       const params = {
         user_id: this.user.id,
         id: this.$route.query.room_id,
@@ -264,7 +286,6 @@ export default {
         alert("Ngay ket thuc phai lon hon ngay bat dau");
         return;
       }
-
       await this.$store
         .dispatch("customer/bookRoomOnline", params)
         .then((respone) => {
@@ -273,6 +294,19 @@ export default {
             return;
           } else {
             alert("Ban da dat phong thanh cong");
+            sendNotificationFirebase({
+              device_type: '5',
+              body: 'Khach hang ' + this.user.name + ' da dat phong',
+              user_id: '5',
+              title: 'Book Room'
+            })
+              .then((response) => {
+                console.log(response);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+            this.$refs["my-modal"].show();
           }
         });
     },
@@ -460,5 +494,12 @@ export default {
       }
     }
   }
+}
+.park {
+  height: 100px;
+  width: 80px;
+  border-radius: 5px;
+  margin-top: 20px;
+  border: 2px solid black;
 }
 </style>

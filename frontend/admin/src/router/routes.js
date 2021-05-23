@@ -206,7 +206,52 @@ const routes = [
           requiredAuth: true
         },
         component: view("messages/Message")
-      }
+      },
+      {
+        path: "list-clean",
+        name: "ListClean",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("room/CleanList")
+      },
+      {
+        path: "list-parks",
+        name: "ListPark",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("ListPark")
+      },
+      {
+        path: "create-parks",
+        name: "CreateParks",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("CreatePark")
+      },
+      {
+        path: "list-food",
+        name: "ListFood",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("food/listFood")
+      },
+      {
+        path: "food/create",
+        name: "CreateFood",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("food/createUpdateFood")
+      },
     ]
   },
   {

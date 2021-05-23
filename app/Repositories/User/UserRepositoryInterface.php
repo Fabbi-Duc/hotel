@@ -15,4 +15,16 @@ interface UserRepositoryInterface extends RepositoryInterface
     public function updateUser($data, $id);
 
     public function deleteUser($id);
+
+    public function createFood($data);
+
+    public function updateFood($data);
+
+    public function listFood($data);
+
+    public function deleteFood($id);
+
+    public function getInfoFood($id);
+
+    public function createPark($data);
 }

@@ -1,4 +1,6 @@
-import { listUsers, bookRoom, deleteUser, createUser, updateUser, getInfoUser, pay } from "@/api/user.api";
+import { listUsers, bookRoom, deleteUser, 
+          createUser, updateUser, getInfoUser, 
+          pay, createFood, updateFood, listFood, getInfoFood, deleteFood, createPark } from "@/api/user.api";
 
 export const state = {
   listUsers: null,
@@ -96,6 +98,79 @@ export const actions = {
   updateUser ({ commit }, params) {
     return new Promise((resolve, reject) => {
       updateUser(params)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  listFood ({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      listFood(params)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  updateFood ({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      updateFood(params)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  createFood ({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      createFood(params)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  getInfoFood ({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      getInfoFood(id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  deleteFood ({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      deleteFood(id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  createPark ({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      console.log(params);
+      createPark(params)
         .then(response => {
           resolve(response);
         })

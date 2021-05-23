@@ -31,19 +31,23 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix("users")->group(function () {
         Route::get("/", [UserController::class, 'index']);
     });
-
-    Route::prefix('notifications')->group(function () {
-        Route::post('save-device-token', [NotificationController::class, 'saveDeviceToken'])->name('saveDeviceToken');
-        Route::post('send-notification', [NotificationController::class, 'sendNotification'])->name('sendNotification');
-        Route::post('send-notification-firebase', [NotificationController::class, 'sendNotificationFirebase'])->name('sendNotificationFirebase');
-    });
 });
 
+Route::post('/notifications/save-device-token', [NotificationController::class, 'saveDeviceToken'])->name('saveDeviceToken');
+Route::post('/notifications/send-notification', [NotificationController::class, 'sendNotification'])->name('sendNotification');
+Route::post('/notifications/send-notification-firebase', [NotificationController::class, 'sendNotificationFirebase'])->name('sendNotificationFirebase');
+Route::get('/notifications/{id}', [NotificationController::class, 'getNotification'])->name('getNotification');
+Route::get('/update-notifications/{id}', [NotificationController::class, 'updateNotification'])->name('updateNotification');
 Route::get('/users/list', [UserController::class, 'getListUsers'])->name('getListUsers');
 Route::delete('/user/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
 Route::get('/user/detail/{id}', [UserController::class, 'getInfoUser'])->name('getInfoUser');
 Route::post('/user/create', [UserController::class, 'createUser'])->name('createUser');
 Route::post('/user/update', [UserController::class, 'updateUser'])->name('updateUser');
+Route::post('/food/create', [UserController::class, 'createFood'])->name('createFood');
+Route::post('/food/update', [UserController::class, 'updateFood'])->name('updateFood');
+Route::get('/food/{id}', [UserController::class, 'getInfoFood'])->name('getInfoFood');
+Route::delete('/food/delete/{id}', [UserController::class, 'deleteFood'])->name('deleteFood');
+Route::get('/food-list', [UserController::class, 'listFood'])->name('listFood');
 Route::delete('/room/delete', [RoomController::class, 'deleteRoom'])->name('deleteRoom');
 Route::get('/rooms/list', [RoomController::class, 'getListRooms'])->name('getListRooms');
 Route::get('/qr-code', [UserController::class, 'sendMail'])->name('sendMailQr');
@@ -63,8 +67,14 @@ Route::get('/customer/{id}', [CustomerController::class, 'getInfoCustomer'])->na
 Route::post('/customer/{room_customer_id}', [CustomerController::class, 'updateBookRoom'])->name('updateBookRoom');
 Route::get('/pay/{id}', [CustomerController::class, 'pay'])->name('pay');
 Route::post('/food', [CustomerController::class, 'food'])->name('food');
-Route::get('/food/list', [CustomerController::class, 'getFood'])->name('getFood');
+Route::get('/list/food', [CustomerController::class, 'getFood'])->name('getFood');
 Route::get('/list-food-order/{room_id}', [CustomerController::class, 'getListFoodOrder'])->name('getListFoodOrder');
 Route::get('/list-order', [CustomerController::class, 'getListOrder'])->name('getListOrder');
 Route::get('/update-order/{room_serivce_food_id}', [CustomerController::class, 'updateListFood'])->name('updateListFood');
 Route::get('/book-room-online', [CustomerController::class, 'bookRoomOnline'])->name('bookRoomOnline');
+Route::get('/list-clean', [CustomerController::class, 'listClean'])->name('listClean');
+Route::get('/update-clean/{room_id}', [CustomerController::class, 'updateClean'])->name('updateClean');
+Route::post('/list-park', [CustomerController::class, 'listPark'])->name('listPark');
+Route::post('/update-park', [CustomerController::class, 'updatePark'])->name('updatePark');
+Route::get('/park-id', [CustomerController::class, 'getParkId'])->name('getParkId');
+Route::post('/create-park', [UserController::class, 'createPark'])->name('createPark');
