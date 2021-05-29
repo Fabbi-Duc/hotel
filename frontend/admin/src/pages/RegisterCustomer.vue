@@ -167,6 +167,7 @@ export default {
         .dispatch("customer/registerCustomer", this.formRegister)
         .then((res) => {
           alert('Thanh cong');
+          this.$router.push({name : 'LoginCustomer'})
         });
     },
   },

@@ -1,54 +1,5 @@
 <template>
   <div id="customer-body">
-    <div class="header">
-      <b-row
-        class="header__contact d-flex justify-content-between align-items-center"
-      >
-        <b-col cols="12" md="8" class="d-flex">
-          <div>
-            <b-icon icon="geo-alt-fill" class="header__contact__icon"></b-icon>
-            <span>9 Crosby Street, New York City</span>
-          </div>
-          |
-          <div>
-            <b-icon icon="envelope" class="header__contact__icon"></b-icon>
-            <span>Nguyendinhtanvp07@gmail.com</span>
-          </div>
-          <div>
-            <b-icon icon="telephone" class="header__contact__icon"></b-icon>
-            <span>0123456789</span>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4" class="text-right">
-          <b-icon icon="twitter" class="header__contact__icon--right"></b-icon>
-          <b-icon icon="facebook" class="header__contact__icon--right"></b-icon>
-          <b-icon
-            icon="instagram"
-            class="header__contact__icon--right"
-          ></b-icon>
-          <b-icon icon="twitter" class="header__contact__icon--right"></b-icon>
-        </b-col>
-      </b-row>
-      <div class="header__nav">
-        <b-row
-          class="header__nav__wrap justify-content-between align-items-center"
-        >
-          <b-col md="4" class="header__nav__brand">
-            <img
-              src="https://fivestar.qodeinteractive.com/wp-content/uploads/2017/12/3Logo-5star-regular.png"
-              alt=""
-            />
-          </b-col>
-          <b-col md="6" class="header__nav__top text-right">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-            <a href=""><b-icon icon="search"></b-icon></a>
-          </b-col>
-        </b-row>
-      </div>
-    </div>
     <div class="content" style="margin-top: 150px">
       <b-row class="mt-5">
         <b-col md="9" v-if="listFood">
@@ -221,6 +172,8 @@
   </div>
 </template>
 <script>
+import store from "@/store";
+import { sendNotificationFirebase } from "@/api/notification.api";
 export default {
   components: {},
 
@@ -230,6 +183,7 @@ export default {
       listFood: null,
       listFoodSelected: [],
       totalPrice: 0,
+      room_id: null,
       paginate: {
         perPage: 5,
         total: 50,
@@ -238,8 +192,12 @@ export default {
     };
   },
 
-  mounted() {
-    this.getFood();
+  async created() {
+    await this.getFood();
+    await store.dispatch("auth/getAccountCustomer").then((res) => {
+      this.user = res.data;
+    });
+    await this.getUser();
   },
   watch: {
     listFoodSelected: function () {
@@ -247,12 +205,66 @@ export default {
     },
   },
   methods: {
-    order() {
-      const params = {
-        id: this.id,
-        food: this.listFoodSelected
-      };
-      this.$store.dispatch("customer/order", params)
+    async order() {
+      let room = null;
+      if (this.id) {
+        const params = {
+          id: this.id,
+          food: this.listFoodSelected,
+        };
+        await this.$store
+          .dispatch("room/getInfoRoom", this.id)
+          .then((res) => {
+            room = res.room.name;
+          });
+        await this.$store.dispatch("customer/order", params).then(() => {
+          alert("Ban da dat mon thanh cong");
+          sendNotificationFirebase({
+            device_type: "3",
+            body:
+              "Khach hang phong" +
+              room +
+              " da dat do an ",
+            user_id: "3",
+            title: "Food",
+          })
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
+      }
+      else if (this.room_id) {
+        const params = {
+          id: this.room_id,
+          food: this.listFoodSelected,
+        };
+        await this.$store
+          .dispatch("room/getInfoRoom", this.room_id)
+          .then((res) => {
+            room = res.room.name;
+          });
+        await this.$store.dispatch("customer/order", params).then(() => {
+          alert("Ban da dat mon thanh cong");
+          sendNotificationFirebase({
+            device_type: "3",
+            body:
+              "Khach hang phong" +
+              room +
+              " da dat do an ",
+            user_id: "3",
+            title: "Food",
+          })
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
+      }
     },
     async changePage(page) {
       this.paginate.page = page;
@@ -268,6 +280,17 @@ export default {
         this.listFood = response.data.data;
         this.paginate.total = response.data.total;
       });
+    },
+    async getUser() {
+      if (this.user.id) {
+        await store
+          .dispatch("customer/getCustomerFood", this.user.id)
+          .then((res) => {
+            if (res.success) {
+              this.room_id = res.data;
+            }
+          });
+      }
     },
     onSlideStart(slide) {
       this.sliding = true;

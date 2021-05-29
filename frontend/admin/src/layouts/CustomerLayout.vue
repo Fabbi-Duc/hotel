@@ -105,16 +105,16 @@ export default {
           console.log(err);
         }
       );
-      sendNotificationFirebase({
-        tokenBrowse:
-          "fF7bGQuPXMkn6jpPIfF1Yc:APA91bFz13j1dXfbM4fCvotQlHndYa6p7PqLM4NV0ejGGnTD2hMaM1L-JIwe1QLwQt9ZNosXS1877EQd4MfqOp2_Cth2a4G74EYWfo5yHXweY_13mTpF08CNZZQa8Y--QPYp4iIES1YE",
-      })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // sendNotificationFirebase({
+      //   tokenBrowse:
+      //     "fF7bGQuPXMkn6jpPIfF1Yc:APA91bFz13j1dXfbM4fCvotQlHndYa6p7PqLM4NV0ejGGnTD2hMaM1L-JIwe1QLwQt9ZNosXS1877EQd4MfqOp2_Cth2a4G74EYWfo5yHXweY_13mTpF08CNZZQa8Y--QPYp4iIES1YE",
+      // })
+      //   .then((response) => {
+      //     console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
     },
   },
 };

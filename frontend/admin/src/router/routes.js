@@ -300,6 +300,14 @@ const routes = [
     component: view("RoomDetails"),
   },
   {
+    path: "/location",
+    name: "Location",
+    meta: {
+      layout: "CustomerLayout",
+      requiredAuth: false
+    },
+  },
+  {
     path: "/food",
     name: "Food",
     meta: {

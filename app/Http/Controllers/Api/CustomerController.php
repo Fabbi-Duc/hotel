@@ -7,6 +7,8 @@ use App\Repositories\Customer\CustomerRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Mail\SendMailPark;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use App\Models\RoomServiceClean;
 
 class CustomerController extends Controller
 {
@@ -21,7 +23,7 @@ class CustomerController extends Controller
     {
         $data = $request->all();
         $result = $this->customerRepository->registerCustomer($data);
-        return $result;   
+        return $result;
     }
 
     public function getCustomersList(Request $request)
@@ -29,6 +31,21 @@ class CustomerController extends Controller
         $data = $request->all();
         $result = $this->customerRepository->getListCustomer($data);
         return $result;
+    }
+
+    public function getCustomerFood($id)
+    {
+        $result = DB::table('rooms_customers')->where('customer_id', $id)->where('status', 2)->first();
+        if ($result) {
+
+            return [
+                'success' => true,
+                'data' => $result->room_id
+            ];
+        }
+        return [
+            'success' => false
+        ];
     }
 
     public function bookRoom(Request $request)
@@ -61,7 +78,7 @@ class CustomerController extends Controller
         return $result;
     }
 
-    public function updateBookRoom($room_customer_id) 
+    public function updateBookRoom($room_customer_id)
     {
         $result = $this->customerRepository->updateBookRoom($room_customer_id);
         return $result;
@@ -115,15 +132,31 @@ class CustomerController extends Controller
         return $result;
     }
 
+    public function clean($room_id)
+    {
+        $result = new RoomServiceClean;
+        $result->room_id = $room_id;
+        $result->status = 2;
+        $result->clean_id = 2;
+        $result->start_time = '2021-04-29T10:24';
+        $result->end_time = '2021-04-29T10:24';
+        $result->cost = '1000';
+        $result->save();
+        
+        return [
+            "success" => true
+        ];
+    }
+
     public function listPark(Request $request)
-    {   
+    {
         $data = $request->all();
         $result = $this->customerRepository->listPark($data);
         return $result;
     }
 
     public function updatePark(Request $request)
-    {   
+    {
         $data = $request->all();
         $result = $this->customerRepository->updatePark($data);
         Mail::to($data['email'])->send(new SendMailPark($data['park_id']));

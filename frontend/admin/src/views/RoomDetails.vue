@@ -1,54 +1,5 @@
 <template>
   <div id="customer-body">
-    <div class="header">
-      <b-row
-        class="header__contact d-flex justify-content-between align-items-center"
-      >
-        <b-col cols="12" md="8" class="d-flex">
-          <div>
-            <b-icon icon="geo-alt-fill" class="header__contact__icon"></b-icon>
-            <span>9 Crosby Street, New York City</span>
-          </div>
-          |
-          <div>
-            <b-icon icon="envelope" class="header__contact__icon"></b-icon>
-            <span>Nguyendinhtanvp07@gmail.com</span>
-          </div>
-          <div>
-            <b-icon icon="telephone" class="header__contact__icon"></b-icon>
-            <span>0123456789</span>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4" class="text-right">
-          <b-icon icon="twitter" class="header__contact__icon--right"></b-icon>
-          <b-icon icon="facebook" class="header__contact__icon--right"></b-icon>
-          <b-icon
-            icon="instagram"
-            class="header__contact__icon--right"
-          ></b-icon>
-          <b-icon icon="twitter" class="header__contact__icon--right"></b-icon>
-        </b-col>
-      </b-row>
-      <div class="header__nav">
-        <b-row
-          class="header__nav__wrap justify-content-between align-items-center"
-        >
-          <b-col md="4" class="header__nav__brand">
-            <img
-              src="https://fivestar.qodeinteractive.com/wp-content/uploads/2017/12/3Logo-5star-regular.png"
-              alt=""
-            />
-          </b-col>
-          <b-col md="6" class="header__nav__top text-right">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-            <a href=""><b-icon icon="search"></b-icon></a>
-          </b-col>
-        </b-row>
-      </div>
-    </div>
     <div class="content" style="margin-top: 110px">
       <b-row class="d-flex">
         <b-col md="9">

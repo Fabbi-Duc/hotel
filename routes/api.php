@@ -73,7 +73,9 @@ Route::get('/list-order', [CustomerController::class, 'getListOrder'])->name('ge
 Route::get('/update-order/{room_serivce_food_id}', [CustomerController::class, 'updateListFood'])->name('updateListFood');
 Route::get('/book-room-online', [CustomerController::class, 'bookRoomOnline'])->name('bookRoomOnline');
 Route::get('/list-clean', [CustomerController::class, 'listClean'])->name('listClean');
+Route::get('/customer-food/{id}', [CustomerController::class, 'getCustomerFood'])->name('getCustomerFood');
 Route::get('/update-clean/{room_id}', [CustomerController::class, 'updateClean'])->name('updateClean');
+Route::get('/clean/{room_id}', [CustomerController::class, 'clean'])->name('clean');
 Route::post('/list-park', [CustomerController::class, 'listPark'])->name('listPark');
 Route::post('/update-park', [CustomerController::class, 'updatePark'])->name('updatePark');
 Route::get('/park-id', [CustomerController::class, 'getParkId'])->name('getParkId');

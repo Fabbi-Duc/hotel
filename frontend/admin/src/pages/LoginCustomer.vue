@@ -9,6 +9,7 @@
         <input type="password" placeholder="Password" v-model="formSignIn.password">
       </div>
       <input type="button" class="btn" value="Sign In" @click="login">
+      <input type="button" class="btn" value="Register" @click="register">
     </div>
   </div>
 </template>
@@ -25,6 +26,10 @@ export default {
     }
   },
   methods: {
+    async register() {
+      console.log(1);
+      await this.$router.push({name : 'RegisterCustomer'});
+    },
     ...mapActions("auth", ["loginCustomer"]),
     async login() {
       await this.loginCustomer(this.formSignIn)
@@ -32,7 +37,7 @@ export default {
           this.$router.push({ name: 'Customer' });
         })
         .catch(() => {});
-    }
+    },
   },
 };
 </script>

@@ -12,22 +12,22 @@ export default [
           text: "NEW"
         }
       },
-      {
-        _name: "CSidebarNavDropdown",
-        name: "Hộp thư",
-        route: "/messages",
-        icon: "cil-puzzle",
-        items: [
-          {
-            name: "Tin nhắn",
-            to: "/messages"
-          },
-          {
-            name: "Phòng chat",
-            to: "/base/breadcrumbs"
-          }
-        ]
-      },
+      // {
+      //   _name: "CSidebarNavDropdown",
+      //   name: "Hộp thư",
+      //   route: "/messages",
+      //   icon: "cil-puzzle",
+      //   items: [
+      //     {
+      //       name: "Tin nhắn",
+      //       to: "/messages"
+      //     },
+      //     {
+      //       name: "Phòng chat",
+      //       to: "/base/breadcrumbs"
+      //     }
+      //   ]
+      // },
       {
         _name: "CSidebarNavDropdown",
         name: "User",
@@ -69,10 +69,10 @@ export default [
             name: "Customers List",
             to: "/customers/list"
           },
-          {
-            name: "Customer Create",
-            to: "/customers/create"
-          }
+          // {
+          //   name: "Customer Create",
+          //   to: "/customers/create"
+          // }
         ]
       }
     ]

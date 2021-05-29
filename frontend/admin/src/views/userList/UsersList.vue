@@ -53,12 +53,12 @@
         }}
       </template>
       <template #cell(position)="row">
-        <span v-if="row.item.position == 0">guard</span>
+        <span v-if="row.item.position == 0">admin</span>
         <span v-if="row.item.position == 1">sanitation worker</span>
-        <span v-if="row.item.position == 2">receptionists</span>
+        <span v-if="row.item.position == 2">guard</span>
         <span v-if="row.item.position == 3">chef</span>
         <span v-if="row.item.position == 4">inventory management</span>
-        <span v-if="row.item.position == 5">admin</span>
+        <span v-if="row.item.position == 5">receptionists</span>
       </template>
       <template #cell(gender)="row">
         <span>

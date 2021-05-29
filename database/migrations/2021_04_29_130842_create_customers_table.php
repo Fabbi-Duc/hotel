@@ -20,7 +20,7 @@ class CreateCustomersTable extends Migration
             $table->rememberToken();
             $table->string('name');
             $table->integer('gender');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('identity_card');
             $table->date('birthday');
             $table->timestamps();

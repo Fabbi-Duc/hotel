@@ -2,7 +2,7 @@ import { listCustomers,
           bookRoom, getInfoCustomer, updateBookRoom, 
           registerCustomer, getFood, order, listOrder, 
           listFoodOrder, updateOrder, bookRoomOnline, 
-          listClean, updateClean, listPark, updatePark } from "@/api/customer.api";
+          listClean, updateClean, listPark, updatePark, getCustomerFood, clean } from "@/api/customer.api";
 
 export const state = {
   listCustomer: null,
@@ -177,6 +177,18 @@ export const actions = {
     });
   },
 
+  clean({ commit }, room_id) {
+    return new Promise((resolve, reject) => {
+      clean(room_id)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
   listPark({ commit }, data) {
     return new Promise((resolve, reject) => {
       listPark(data)
@@ -192,6 +204,18 @@ export const actions = {
   updatePark({ commit }, data) {
     return new Promise((resolve, reject) => {
       updatePark(data)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+
+  getCustomerFood({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      getCustomerFood(id)
         .then(response => {
           resolve(response);
         })

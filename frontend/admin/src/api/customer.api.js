@@ -98,6 +98,13 @@ export const updateClean = room_id => {
   });
 };
 
+export const clean = room_id => {
+  return request({
+    url: "/clean/" + room_id,
+    method: "get",
+  });
+};
+
 export const listPark = data => {
   return request({
     url: "/list-park",
@@ -111,5 +118,12 @@ export const updatePark = data => {
     url: "/update-park",
     method: "post",
     data
+  });
+};
+
+export const getCustomerFood = id => {
+  return request({
+    url: "/customer-food/" + id,
+    method: "get",
   });
 };

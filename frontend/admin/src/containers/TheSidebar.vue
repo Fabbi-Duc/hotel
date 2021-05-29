@@ -22,11 +22,30 @@
       />
     </CSidebarBrand>
 
-    <CRenderFunction v-if="admin" flat :content-to-render="$options.nav" />
     <CRenderFunction
-      v-if="receptionists"
+      v-if="user && user.position == 0"
+      flat
+      :content-to-render="$options.nav"
+    />
+    <CRenderFunction
+      v-if="user && user.position == 5"
       flat
       :content-to-render="$options.nav_receptionists"
+    />
+    <CRenderFunction
+      v-if="user && user.position == 3"
+      flat
+      :content-to-render="$options.nav_chef"
+    />
+    <CRenderFunction
+      v-if="user && user.position == 2"
+      flat
+      :content-to-render="$options.nav_guard"
+    />
+    <CRenderFunction
+      v-if="user && user.position == 1"
+      flat
+      :content-to-render="$options.nav_clean"
     />
     <CSidebarMinimizer
       class="d-md-down-none"
@@ -38,6 +57,9 @@
 <script>
 import nav from "./_nav";
 import nav_receptionists from "./_nav-receptionists";
+import nav_chef from "./_nav-chef";
+import nav_guard from "./_nav-guard";
+import nav_clean from "./_nav-clean";
 // import { sendNotificationFirebase } from "@/api/notification.api";
 import firebase from "@/plugins/firebase";
 
@@ -45,6 +67,9 @@ export default {
   name: "TheSidebar",
   nav,
   nav_receptionists,
+  nav_chef,
+  nav_guard,
+  nav_clean,
   async created() {
     await this.getUser();
     await this.getTokenFirebase();
@@ -59,9 +84,7 @@ export default {
   },
   data() {
     return {
-      receptionists: false,
-      admin: true,
-      user: null
+      user: null,
     };
   },
   methods: {
@@ -86,10 +109,10 @@ export default {
         });
     },
     getUser() {
-      this.$store.dispatch('auth/getAccount').then(res => {
-        this.user = res.data
-      })
-    }
+      this.$store.dispatch("auth/getAccount").then((res) => {
+        this.user = res.data;
+      });
+    },
   },
 };
 </script>

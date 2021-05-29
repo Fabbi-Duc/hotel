@@ -14619,3 +14619,36 @@
 2021-05-29 01:59:54,361 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2021-05-29 01:59:54,361 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2021-05-29 01:59:54,361 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-29 11:47:41,756 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-05-29 11:47:41,756 INFO Included extra file "/etc/supervisor.d/cron.conf" during parsing
+2021-05-29 11:47:41,756 INFO Included extra file "/etc/supervisor.d/horizon.conf" during parsing
+2021-05-29 11:47:41,756 INFO Included extra file "/etc/supervisor.d/php-fpm.conf" during parsing
+2021-05-29 11:47:42,186 INFO supervisord started with pid 1
+2021-05-29 11:47:43,207 INFO spawned: 'cron-job' with pid 10
+2021-05-29 11:47:43,233 INFO spawned: 'horizon' with pid 11
+2021-05-29 11:47:43,256 INFO spawned: 'php-fpm' with pid 12
+2021-05-29 11:47:44,269 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-29 11:47:44,271 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-29 11:47:44,273 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-30 00:31:06,315 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-05-30 00:31:06,315 INFO Included extra file "/etc/supervisor.d/cron.conf" during parsing
+2021-05-30 00:31:06,315 INFO Included extra file "/etc/supervisor.d/horizon.conf" during parsing
+2021-05-30 00:31:06,316 INFO Included extra file "/etc/supervisor.d/php-fpm.conf" during parsing
+2021-05-30 00:31:06,320 INFO supervisord started with pid 1
+2021-05-30 00:31:07,322 INFO spawned: 'cron-job' with pid 12
+2021-05-30 00:31:07,324 INFO spawned: 'horizon' with pid 13
+2021-05-30 00:31:07,325 INFO spawned: 'php-fpm' with pid 14
+2021-05-30 00:31:08,895 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-30 00:31:08,895 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-30 00:31:08,895 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-30 02:24:54,478 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-05-30 02:24:54,479 INFO Included extra file "/etc/supervisor.d/cron.conf" during parsing
+2021-05-30 02:24:54,479 INFO Included extra file "/etc/supervisor.d/horizon.conf" during parsing
+2021-05-30 02:24:54,479 INFO Included extra file "/etc/supervisor.d/php-fpm.conf" during parsing
+2021-05-30 02:24:54,493 INFO supervisord started with pid 1
+2021-05-30 02:24:55,497 INFO spawned: 'cron-job' with pid 11
+2021-05-30 02:24:55,499 INFO spawned: 'horizon' with pid 12
+2021-05-30 02:24:55,502 INFO spawned: 'php-fpm' with pid 13
+2021-05-30 02:24:57,000 INFO success: cron-job entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-30 02:24:57,000 INFO success: horizon entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2021-05-30 02:24:57,000 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

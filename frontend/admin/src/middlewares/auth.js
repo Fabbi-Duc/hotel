@@ -7,7 +7,7 @@ export default function auth({ to, next }) {
   const requiredAuth = to.matched.some(record => record.meta.requiredAuth);
   if (requiredAuth) {
     if (!token && !tokenStore) {
-      next({ name: "SignIn" });
+      next({ name: "LoginCustomer" });
     } else if (token && tokenStore) {
       store.dispatch("auth/getAccount");
       store.dispatch("auth/getAccountCustomer");

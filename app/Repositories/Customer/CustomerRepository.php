@@ -22,7 +22,15 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
     public function registerCustomer($data)
     {
         try {
-            $room = $this->model->create($data);
+            $room = new Customers;
+            $room->email = $data['email'];
+            $room->password = bcrypt($data['password']);
+            $room->name = $data['name'];
+            $room->gender = $data['gender'];
+            $room->phone = $data['phone'];
+            $room->identity_card = $data['identity_card'];
+            $room->birthday = $data['birthday'];
+            $room->save();
             return [
                 'success' => true
             ];
@@ -162,7 +170,10 @@ class CustomerRepository extends RepositoryAbstract implements CustomerRepositor
             $bill->status = 1;
             $bill->save();
 
-            DB::table('rooms')->where('id', $id['id'])->update(['status' => 3]);
+            $room = DB::table('rooms')->where('id', $id['id'])->first();
+            if($room->status == 1) {
+                DB::table('rooms')->where('id', $id['id'])->update(['status' => 2]);
+            };
 
 
             return [

@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->string('firstname');
             $table->integer('gender');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('image_user');
             $table->integer('position');
             $table->date('birthday');

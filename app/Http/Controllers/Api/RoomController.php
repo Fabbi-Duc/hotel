@@ -77,7 +77,7 @@ class RoomController extends Controller
     }
 
     public function loadComment() {
-        $url_get = "https://graph.facebook.com/v10.0/3065207047033710_3065167190371029/comments?limit=1000&filter=toplevel&access_token=EAAFeIzn3UTcBAGK6D0ilwFD8FIWoqOmpZBmLifkEfSDewSvajsWErvP5ZBpIdxVZBt7nJ1d7HIkMG3RddNYiZA8dROuzd5R6RTqYJhDerH3a9HgI5S0BDLlzB2SSxRrWeKVZBDLi9YdCZBSeJY2GjBqucABnfn2fqqoVtjdLWZCZC3UUxmujyYYvrUSc8GY78WUZD";
+        $url_get = "https://graph.facebook.com/v10.0/3065207047033710_3065167190371029/comments?limit=1000&filter=toplevel&access_token=EAAFeIzn3UTcBAKjJp0PH1ZAAHG4rZAwQM2AqTOv4pXvgNZAZBgZAHMQbbzOSR3F4sdfTpDcZABctZCVRC4OEOa20UZBgtBD96ubWdSlB3WiQUGJA4WFpbw5zWVzQOkHXS3ecDtjKtMLgwyEgZAqIH9dor3X4b1yPtnanOwrABhT681uOZA16adMuWWvSRlX4JLP4SqbbHmKpsTgx3Ud9nZCTjcuV4jOcS4f32BeQwMEn6XUZBDflVfJyWorA";
         $c = curl_init($url_get);
         curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
         $json_string = curl_exec($c);
