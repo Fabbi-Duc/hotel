@@ -105,7 +105,9 @@ export default {
     receiveMessage() {
       try {
         navigator.serviceWorker.addEventListener("message", (event) => {
-          this.numberNotice = event.data.firebaseMessaging.payload.data.count;
+          if(this.user.position == event.data.firebaseMessaging.payload.data.id) {
+            this.numberNotice = event.data.firebaseMessaging.payload.data.count;
+          }
         });
       } catch (e) {
         console.log(e);

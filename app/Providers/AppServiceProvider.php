@@ -34,6 +34,16 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->singleton(
+            "App\Repositories\HouseWare\HouseWareRespositoryInterface",
+            "App\Repositories\HouseWare\HouseWareRepository"
+        );
+
+        $this->app->singleton(
+            "App\Repositories\Ingredients\IngredientsRepositoryInterface",
+            "App\Repositories\Ingredients\IngredientsRepository"
+        );
+
+        $this->app->singleton(
             "App\Services\Auth\AuthServiceInterface",
             "App\Services\Auth\AuthService"
         );

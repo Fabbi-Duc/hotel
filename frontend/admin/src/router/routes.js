@@ -141,6 +141,176 @@ const routes = [
         component: view("userList/room")
       },
       {
+        path: "list-houseware",
+        name: "ListHouseware",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("houseware/listHouseware")
+      },
+      {
+        path: "coupon-houseware",
+        name: "CouponHouseware",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("houseware/couponHouseware")
+      },
+      {
+        path: "list-coupon-houseware",
+        name: "ListCouponHouseware",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("houseware/ListCouponHouseware")
+      },
+      {
+        path: "update-coupon-houseware/:id",
+        name: "UpdateCouponHouseware",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("houseware/updateCouponHouseware")
+      },
+      {
+        path: "list-ingredients",
+        name: "ListIngredients",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("ingredients/listIngredients")
+      },
+      {
+        path: "coupon-ingredients",
+        name: "CouponIngredients",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("ingredients/couponIngredients")
+      },
+      {
+        path: "list-coupon-ingredients",
+        name: "ListCouponIngredients",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("ingredients/listCouponIngredients")
+      },
+      {
+        path: "update-coupon-ingredients/:id",
+        name: "UpdateCouponIngredients",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("ingredients/updateCouponIngredients")
+      },
+      {
+        path: "export-houseware",
+        name: "ExportHouseware",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("houseware/exportHouseware")
+      },
+      {
+        path: "list-export-houseware",
+        name: "ListExportHouseware",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("houseware/listExportHouseware")
+      },
+      {
+        path: "update-export-houseware/:id",
+        name: "UpdateExportHouseware",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("houseware/updateExportHouseware")
+      },
+      {
+        path: "approve-export-houseware/:id",
+        name: "ApproveExportHouseware",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("houseware/approveExportHouseware")
+      },
+      {
+        path: "get-list-export-houseware",
+        name: "GetListExportHouseware",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("houseware/getListExportHouseware")
+      },
+      {
+        path: "export-ingredients",
+        name: "ExportIngredients",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("ingredients/exportIngredients")
+      },
+      {
+        path: "list-export-ingredients",
+        name: "ListExportIngredients",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        component: view("ingredients/listExportIngredients")
+      },
+      {
+        path: "update-export-ingredients/:id",
+        name: "UpdateExportIngredients",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("ingredients/updateExportIngredients")
+      },
+      {
+        path: "get-list-export-ingredients",
+        name: "GetListExportIngredients",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("ingredients/getListExportIngredients")
+      },
+      {
+        path: "approve-export-ingredients/:id",
+        name: "ApproveExportIngredients",
+        meta: {
+          layout: "MainLayout",
+          requiredAuth: true
+        },
+        props: true,
+        component: view("ingredients/approveExportIngredients")
+      },
+      {
         path: "room/book/:id",
         name: "BookRoom",
         meta: {

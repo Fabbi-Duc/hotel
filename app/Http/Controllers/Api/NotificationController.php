@@ -53,6 +53,7 @@ class NotificationController extends ApiController
             "data" => [
                 "sound" => "default",
                 "count" => $numberNotification,
+                "id" => $request->user_id,
                 "body" => $request->body,
                 "title" => $request->title,
                 "content_available" => true,

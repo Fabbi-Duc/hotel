@@ -17,6 +17,18 @@ export default [
         icon: "cil-puzzle",
         name: "Room",
         to: "/rooms"
+      },
+      {
+        _name: "CSidebarNavItem",
+        icon: "cil-puzzle",
+        name: "Export Houseware",
+        to: "/export-houseware"
+      },
+      {
+        _name: "CSidebarNavItem",
+        icon: "cil-puzzle",
+        name: "List Export Houseware",
+        to: "/list-export-houseware"
       }
     ]
   }

@@ -74,6 +74,58 @@ export default [
           //   to: "/customers/create"
           // }
         ]
+      },
+      {
+        _name: "CSidebarNavDropdown",
+        name: "Houseware",
+        route: "/houseware",
+        icon: "cil-puzzle",
+        items: [
+          {
+            name: "Houseware List",
+            to: "/list-houseware"
+          },
+          {
+            name: "Coupon Houseware Create",
+            to: "/coupon-houseware"
+          },
+          {
+            name: "Coupon Houseware List",
+            to: "/list-coupon-houseware"
+          }
+        ]
+      },
+      {
+        _name: "CSidebarNavDropdown",
+        name: "Ingredients",
+        route: "/ingredients",
+        icon: "cil-puzzle",
+        items: [
+          {
+            name: "Ingredients List",
+            to: "/list-ingredients"
+          },
+          {
+            name: "Coupon Ingredients Create",
+            to: "/coupon-ingredients"
+          },
+          {
+            name: "Coupon Ingredients List",
+            to: "/list-coupon-ingredients"
+          }
+        ]
+      },
+      {
+        _name: "CSidebarNavItem",
+        icon: "cil-puzzle",
+        name: "List Export Houseware",
+        to: "/get-list-export-houseware"
+      },
+      {
+        _name: "CSidebarNavItem",
+        icon: "cil-puzzle",
+        name: "List Export Ingredients",
+        to: "/get-list-export-ingredients"
       }
     ]
   }

@@ -24,6 +24,18 @@ export default [
         name: "ListFood",
         to: "/list-food"
       },
+      {
+        _name: "CSidebarNavItem",
+        icon: "cil-puzzle",
+        name: "Export Ingredients",
+        to: "/export-ingredients"
+      },
+      {
+        _name: "CSidebarNavItem",
+        icon: "cil-puzzle",
+        name: "List Export Ingredients",
+        to: "/list-export-ingredients"
+      }
     ]
   }
 ];
