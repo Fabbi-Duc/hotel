@@ -341,6 +341,7 @@ class HouseWareRepository extends RepositoryAbstract implements HouseWareResposi
         try {
             $description = DB::table('export_houseware')->where('id', $id)->first()->description;
             $status = DB::table('export_houseware')->where('id', $id)->first()->status;
+            $user_id = DB::table('export_houseware')->where('id', $id)->first()->user_id;
             $data = DB::table('houseware')
                 ->leftJoin('service_export_houseware', 'houseware.id', '=', 'service_export_houseware.houseware_id')
                 ->where('service_export_houseware.export_houseware_id', $id)
@@ -350,6 +351,7 @@ class HouseWareRepository extends RepositoryAbstract implements HouseWareResposi
                 'success' => true,
                 'description' => $description,
                 'status' => $status,
+                'id' => $user_id,
                 'data' => $data,
             ];
         } catch (\Exception $e) {

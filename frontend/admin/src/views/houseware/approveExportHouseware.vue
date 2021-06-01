@@ -110,6 +110,7 @@
 
 <script>
 import { ValidationObserver, ValidationProvider } from "vee-validate";
+import { sendNotificationFirebase } from "@/api/notification.api";
 
 export default {
   components: {
@@ -123,6 +124,7 @@ export default {
       housewareOption: null,
       show: null,
       status: null,
+      user_id: null,
     };
   },
   props: ["id"],
@@ -139,6 +141,7 @@ export default {
         .then((res) => {
           this.description = res.description;
           this.status = res.status;
+          this.user_id = res.id
           this.options = res.data;
         });
     },
@@ -152,6 +155,18 @@ export default {
         .dispatch("houseware/completeExportHouseware", this.id)
         .then(() => {
           alert("Ban da cap nhat thanh cong");
+          sendNotificationFirebase({
+            device_type: "5",
+            body: "Don cua ban da duoc chap nhan",
+            user_id: "5",
+            title: "Export Houseware",
+          })
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         });
     },
     async refuse() {
